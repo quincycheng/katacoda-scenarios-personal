@@ -1,4 +1,4 @@
-We will make use of the host as the client and create a container as Kerberos KDC
+We will make use of the host as the client and create a container as Kerberos KDC.
 
 ### Install Kerberos Client
 First, we install Kerberos client on the host
@@ -17,7 +17,10 @@ Administrative server for your Kerberos realm: `localhost`{{execute}}
  
 ### Setup Kerberos Server
 Let's setup a Kerberos server on docker
-`docker-compose -f docker-compose-krb5.yml up -d `{{execute}}
+```
+chmod +x *.sh
+docker-compose -f docker-compose-krb5.yml up -d 
+```{{execute}}
 
 
 ### Verify Setup

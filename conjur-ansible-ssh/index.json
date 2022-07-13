@@ -8,7 +8,19 @@
         "title": "Install Ansible",
         "text": "ansible.md"
       },
-       {
+      {
+        "title": "Typical Playbook",
+        "text": "insecure-playbook.md"
+      },
+      {
+        "title": "The Risk",
+        "text": "risk.md"
+      },
+      {
+        "title": "The Plan",
+        "text": "plan.md"
+      },
+      {
         "title": "Setting Up Role & Lookup Plugin",
         "text": "galaxy.md"
       },
@@ -26,12 +38,18 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "code": "startHosts.sh"
     },
     "finish": {
       "text": "finish.md"
     },
-   "assets": { "host01": [ {"file": "*", "target": "/root"}, {"file": "*.sh", "target": "/root", "chmod":"+x"} ] }
+    "assets": {
+      "host01": [
+        { "file": "*", "target": "/root" },
+        { "file": "*.sh", "target": "/root", "chmod": "+x" }
+      ]
+    }
   },
   "environment": {
     "uilayout": "terminal-terminal"

@@ -1,16 +1,4 @@
-#rm * -rf 
-#git clone https://github.com/quincycheng/katacoda-env-conjur-ansible-ssh.git 
-#mv katacoda-env-conjur-ansible-ssh/* .
-#chmod +x conjur/setupConjur.sh
-#cd conjur
-#./setupConjur.sh 
-#cd ..
-
-apt install software-properties-common jq -y && \
-add-apt-repository -y ppa:deadsnakes/ppa && \
-apt install -y python3.10 python3.10-distutils && \
-curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
-python3.10 -m pip install conjur==7.1.0 &
+#!/bin/bash
 
 curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.conjur2022.yml && \
 docker-compose pull & 

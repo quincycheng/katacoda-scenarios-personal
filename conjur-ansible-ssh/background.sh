@@ -8,9 +8,9 @@
 
 apt install software-properties-common jq -y && \
 add-apt-repository -y ppa:deadsnakes/ppa && \
-apt install python3.10 && \
-apt install -y python3-pip && \
-pip3 install conjur==7.1.0 &
+apt install -y python3.10 python3.10-distutils && \
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
+python3.10 -m pip install conjur==7.1.0 &
 
 curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.conjur2022.yml && \
 docker-compose pull & 
@@ -37,19 +37,18 @@ EOF
 
 mkdir secure-playbook
 cat <<EOF > secure-playbook/inventory
-[db_servers]
+[demo_servers]
 host1
 host2
 EOF
+
 cat <<EOF > secure-playbook/secure-playbook.yml
-- hosts: db_servers
-  roles:
-    - role: cyberark.conjur-lookup-plugin
+- hosts: demo_servers
   vars:
       ansible_connection: ssh      
-      ansible_host: "{{ lookup('retrieve_conjur_variable', 'db/' + inventory_hostname+ '/host') }}"
-      ansible_user: "{{ lookup('retrieve_conjur_variable', 'db/' + inventory_hostname+ '/user') }}"
-      ansible_ssh_pass: "{{ lookup('retrieve_conjur_variable', 'db/' + inventory_hostname+ '/pass') }}"
+      ansible_host: "{{ lookup('conjur_variable', 'db/' + inventory_hostname+ '/host') }}"
+      ansible_user: "{{ lookup('conjur_variable', 'db/' + inventory_hostname+ '/user') }}"
+      ansible_ssh_pass: "{{ lookup('conjur_variable', 'db/' + inventory_hostname+ '/pass') }}"
 
   tasks:
     - name: Get user name
@@ -79,6 +78,9 @@ cat <<EOF > ansible.yml
 - !grant
   role: !layer
   member: !host ansible-01
+
+- !host-factory
+  layers: [ !layer ]
 EOF
 
 cat <<EOF > db.yml
@@ -101,6 +103,22 @@ cat <<EOF > db.yml
 - !grant
   role: !group secrets-users
   member: !layer /ansible
+EOF
+
+cat <<EOF > grant_conjur_id.yml
+- hosts: servers
+  roles:
+    - role: cyberark.conjur-host-identity
+      conjur_appliance_url: "{{lookup('env', 'CONJUR_URL')}}"
+      conjur_account: "demo"
+      conjur_host_factory_token: "{{lookup('env', 'HFTOKEN')}}"
+      conjur_host_name: "{{inventory_hostname}}"
+      conjur_validate_certs: "false"
+EOF
+
+cat <<EOF > inventory
+[servers]
+localhost
 EOF
 
 docker run --name sshd1 -P -d quincycheng/killercoda-sshd-host:latest && \

@@ -8,7 +8,7 @@ ansible-galaxy install cyberark.conjur-host-identity
 
 2.  Get the SSL Cert from Conjur
 ```
-openssl s_client -showcerts -connect {{TRAFFIC_HOST1_8080}} < /dev/null 2> /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > <file-name>
+openssl s_client -showcerts -connect {{TRAFFIC_HOST1_8080}} < /dev/null 2> /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > conjur.pem
 ```{{execute}}
 
 3. Create a host factory token
@@ -16,9 +16,10 @@ openssl s_client -showcerts -connect {{TRAFFIC_HOST1_8080}} < /dev/null 2> /dev/
 conjur hostfactory create token -i ansible -m 30|tee hftoken
 ```{{execute}}
 
-4. Save the token as environment 
+4. Save the token & Conjur URL as environment variables
 ```
 export HFTOKEN="$(grep token hftoken | cut -d: -f2 | tr -d ' \r\n' | tr -d ','  | tr -d '\"' )"
+export CONJUR+URL={{TRAFFIC_HOST1_8080}}
 ```{{execute}}
 
 5. Prepare an inventory file: `cat inventory`{{execute}}

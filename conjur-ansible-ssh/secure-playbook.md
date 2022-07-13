@@ -7,15 +7,14 @@ sed -i "s=login host/=login host%2F=" /etc/conjur.identity
 
 Let's review the sample inventory, which stores the 2 servers
 ```
-cd ../secure-playbook
-cat inventory
+cat secure-playbook/inventory
 ```{{execute}}
 
 Let's review the sample playbook, which connects to 
-`cat playbook.yml`{{execute}}
+`cat secure-playbook/secure-playbook.yml`{{execute}}
 
 To execute the playbook:
-`ansible-playbook -i inventory playbook.yml`{{execute}}
+`ansible-playbook -i secure-playbook/inventory secure-playbook/secure-playbook.yml`{{execute}}
 
 The result should contains the following message:
 ```

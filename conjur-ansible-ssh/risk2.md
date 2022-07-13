@@ -2,6 +2,6 @@ Let's review the new inventory file again.
 
 Try to execute:
 
-`cat inventory`{{execute HOST1}}
+`cat secure-playbook/inventory`{{execute}}
 
 Can you find any embedded secrets?

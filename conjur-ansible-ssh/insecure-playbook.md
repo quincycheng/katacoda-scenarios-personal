@@ -9,7 +9,7 @@ First, let's review inventory file about our servers
 ```
 cat insecure-playbook/inventory
 ```
-{{execute HOST1}}
+{{execute}}
 
 ```
 [demo_servers]
@@ -25,7 +25,7 @@ Next, the playbook for the 2 hosts
 ```
 cat insecure-playbook/insecure-playbook.yml
 ```
-{{execute HOST1}}
+{{execute}}
 
 
 ### Let's try the sample playbook

@@ -2,7 +2,7 @@ FROM alpine:3.16
 LABEL maintainer="Quincy Cheng (quincy.cheng@cyberark.com)"
 
 RUN apk add --no-cache \ 
-        openssh \
+        openssh python3 \
     && ssh-keygen -A \
     && mkdir /root/.ssh \
     && chmod 0700 /root/.ssh \

@@ -1,12 +1,5 @@
-# Interactive Katacoda Scenarios
+# KillerCoda Scenarios
 
-[![](http://shields.katacoda.com/katacoda/quincycheng/count.svg)](https://www.katacoda.com/quincycheng "Get your profile on Katacoda.com")
+This is the respository for my killercoda scenario, migrated from Katacoda
 
-Visit https://www.katacoda.com/quincycheng to view the profile and interactive scenarios
-
-### Writing Scenarios
-Visit https://www.katacoda.com/docs to learn more about creating Katacoda scenarios
-
-For examples, visit https://github.com/katacoda/scenario-example
-
-![ga](https://ga-beacon-226104.appspot.com/UA-131132287-1/github?pixel&useReferer)
+Too see them in action:  https://killercoda.com/quincycheng

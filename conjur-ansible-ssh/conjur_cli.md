@@ -3,8 +3,10 @@ Let's initialize Conjur CLI.
 You only need to do it once.
 
 ```
-conjur init -u {{TRAFFIC_HOST1_8080}}) -a demo 
+conjur init -u {{TRAFFIC_HOST1_8080}} -a demo 
 ```{{execute}}
+
+If `Trust this certificate? yes/no (Default: no):` is prompted, answer `yes`{{execute}}
 
 If the above command returns an error message, that means the system is being started.
 Please wait for a moment and try again.

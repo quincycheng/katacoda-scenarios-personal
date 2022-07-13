@@ -1,12 +1,29 @@
 
-Let's initialize Conjur CLI.   
-You only need to do it once.
+### Install CLI
 
+Let's install Conjur CLI by executing the following command.   It will take a while.
 ```
-conjur init -u {{TRAFFIC_HOST1_8080}} -a demo 
+apt install software-properties-common jq -y && \
+add-apt-repository -y ppa:deadsnakes/ppa && \
+apt install -y python3.10 python3.10-distutils && \
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
+python3.10 -m pip install conjur==7.1.0
 ```{{execute}}
 
-If `Trust this certificate? yes/no (Default: no):` is prompted, answer `yes`{{execute}}
+To check the version installed, execute:
+`conjur --version`{{execute}}
+
+
+### Conjur Init
+
+You only to initialize Conjur CLI once.
+
+```
+conjur init  -a demo-u {{TRAFFIC_HOST1_8080}} 
+```{{execute}}
+
+If `Trust this certificate? yes/no (Default: no):` is prompted, answer:
+ `yes`{{execute}}
 
 If the above command returns an error message, that means the system is being started.
 Please wait for a moment and try again.

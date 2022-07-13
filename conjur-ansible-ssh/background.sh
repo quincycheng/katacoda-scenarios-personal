@@ -113,7 +113,8 @@ cat <<EOF > grant_conjur_id.yml
       conjur_account: "demo"
       conjur_host_factory_token: "{{lookup('env', 'HFTOKEN')}}"
       conjur_host_name: "{{inventory_hostname}}"
-      conjur_validate_certs: "false"
+      conjur_ssl_certificate:  "{{lookup('file', 'conjur.pem')}}"
+      conjur_validate_certs: "true"
 EOF
 
 cat <<EOF > inventory

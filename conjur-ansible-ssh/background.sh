@@ -6,10 +6,13 @@
 #./setupConjur.sh 
 #cd ..
 
-apt install -y python3-pip jq && pip3 install conjur &
+apt install software-properties-common jq -y && \
+add-apt-repository -y ppa:deadsnakes/ppa && \
+apt install python3.10 && \
+apt install -y python3-pip && \
+pip3 install conjur==7.1.0 &
 
-curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.conjur2022.yml
-
+curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.conjur2022.yml && \
 docker-compose pull & 
 
 mkdir insecure-playbook
@@ -60,5 +63,45 @@ cat <<EOF > secure-playbook/secure-playbook.yml
     - debug: msg="I am {{ theuser.stdout }} at {{ thehost.stdout }}"
 EOF
 
-docker run --name sshd1 -P -d quincycheng/killercoda-sshd-host:latest
-docker run --name sshd2 -P -d quincycheng/killercoda-sshd-host:latest
+cat <<EOF > conjur.yml
+- !policy
+  id: db
+
+- !policy
+  id: ansible
+EOF
+
+cat <<EOF > ansible.yml
+- !layer
+
+- !host ansible-01
+
+- !grant
+  role: !layer
+  member: !host ansible-01
+EOF
+
+cat <<EOF > db.yml
+- &variables
+  - !variable host1/host
+  - !variable host1/user
+  - !variable host1/pass
+  - !variable host2/host
+  - !variable host2/user
+  - !variable host2/pass
+
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+
+# Entitlements 
+- !grant
+  role: !group secrets-users
+  member: !layer /ansible
+EOF
+
+docker run --name sshd1 -P -d quincycheng/killercoda-sshd-host:latest && \
+docker run --name sshd2 -P -d quincycheng/killercoda-sshd-host:latest 

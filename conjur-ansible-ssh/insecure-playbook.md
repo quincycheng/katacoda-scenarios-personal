@@ -6,10 +6,7 @@ Here comes a typical ansible playbook & inventory
 
 First, let's review inventory file about our servers
 
-```
-cat insecure-playbook/inventory
-```
-{{execute}}
+`cat insecure-playbook/inventory`{{execute}}
 
 ```
 [demo_servers]
@@ -22,10 +19,7 @@ EOF
 
 Next, the playbook for the 2 hosts
 
-```
-cat insecure-playbook/insecure-playbook.yml
-```
-{{execute}}
+`cat insecure-playbook/insecure-playbook.yml`{{execute}}
 
 
 ### Let's try the sample playbook

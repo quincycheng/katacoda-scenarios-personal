@@ -1,6 +1,7 @@
 
 ## Install Ansible
 
+Execute the following command to install Ansible.   It may take a moment
 ```
 apt-get update && \
 apt-add-repository --yes --update ppa:ansible/ansible  && \

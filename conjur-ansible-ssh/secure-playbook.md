@@ -3,6 +3,9 @@
 Let's convert the conjur identity to make it compatible with Ansible:
 ```
 sed -i "s=login host/=login host%2F=" /etc/conjur.identity
+
+sed -i '/cert_file/d' /etc/conjur.conf
+
 ```{{execute}}
 
 Let's review the sample inventory, which stores the 2 servers

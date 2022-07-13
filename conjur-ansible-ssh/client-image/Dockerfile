@@ -11,8 +11,8 @@ RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
  
 RUN adduser --home /tmp -s /bin/sh -D service01
 RUN adduser --home /tmp -s /bin/sh -D service02
-RUN echo -n 'service01:Wx4m=cS6QSZScZnd' | chpasswd
-RUN echo -n 'service02:5xLFoJ4RfqdsxDZ8' | chpasswd
+RUN echo -n 'service01:W/4m=cS6QSZSc*nd' | chpasswd
+RUN echo -n 'service02:5;LF+J4Rfqds:DZ8' | chpasswd
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D", "-e"]

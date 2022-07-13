@@ -55,38 +55,28 @@ Now let's copy the policy files to Conjur CLI container and load them
 **Load Root Policy**
 
 ```
-docker cp conjur.yml root_client_1:/tmp/
-docker-compose exec client conjur policy load --replace root /tmp/conjur.yml
+conjur policy load -b root -f conjur.yml
 ```{{execute}}
 
 **Load ansible Policy**
 ```
-docker cp ansible.yml root_client_1:/tmp/
-docker-compose exec client conjur policy load ansible /tmp/ansible.yml | tee ansible.out
+conjur policy load -b ansible -f ansible.yml | tee ansible.out
 ```{{execute}}
 
 **Load db Policy**
 ```
-docker cp db.yml root_client_1:/tmp/
-docker-compose exec client conjur policy load db /tmp/db.yml
+conjur policy load -b db -f db.yml
 ```{{execute}}
 
-### Add variable
-Let's create secrets and add them to Conjur
-
-Host 1 IP:
-`docker-compose exec client conjur variable values add db/host1/host "[[HOST1_IP]]"`{{execute}}
-Host 1 user name:
-`docker-compose exec client conjur variable values add db/host1/user "service01"`{{execute}}
-Host 1 password:
-`docker-compose exec client conjur variable values add db/host1/pass "W/4m=cS6QSZSc*nd"`{{execute}}
-
-Host 2 IP:
-`docker-compose exec client conjur variable values add db/host2/host "[[HOST2_IP]]"`{{execute}}
-Host 2 user name:
-`docker-compose exec client conjur variable values add db/host2/user "service02"`{{execute}}
-Host 2 password:
-`docker-compose exec client conjur variable values add db/host2/pass "5;LF+J4Rfqds:DZ8"`{{execute}}
+### Set variable
+Let's set the value of variables accordingly
 
 
-
+```
+conjur variable set -i db/host1/host -v "172.17.0.2" && \
+conjur variable set -i db/host1/user -v "service01" && \
+conjur variable set -i db/host1/pass -v "W/4m=cS6QSZSc*nd" && \
+conjur variable set -i db/host2/host -v "172.17.0.3" && \
+conjur variable set -i db/host2/user -v "service02" && \
+conjur variable set -i db/host2/pass -v "5;LF+J4Rfqds:DZ8"
+```{{execute}}

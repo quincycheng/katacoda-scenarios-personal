@@ -15,17 +15,10 @@ Using environment variables:
 
 ```
 export CONJUR_ACCOUNT="demo"
-export CONJUR_APPLIANCE_URL="https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/"
+export CONJUR_APPLIANCE_URL="{{TRAFFIC_HOST1_8080}}"
 export CONJUR_CERT_FILE="/root/conjur-demo.pem"
 export CONJUR_AUTHN_LOGIN="host/ansible/ansible-01"
 export CONJUR_AUTHN_API_KEY="$(tail -n +2 ansible.out | jq -r '.created_roles."demo:host:ansible/ansible-01".api_key')"
-```{{execute}}
-
-We can get the conjur client configuration from the client container:
-
-```
-docker cp root_client_1:/root/.conjurrc /root/
-docker cp root_client_1:/root/conjur-demo.pem /root/
 ```{{execute}}
 
 Let's review the sample inventory, which stores the 2 servers

@@ -1,6 +1,6 @@
 
 
-### To install Ansible:
+### To install Ansible
 
 ```
 apt-get update

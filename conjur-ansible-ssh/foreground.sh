@@ -7,4 +7,4 @@ printf "☑️\n- Target Host 1..." && \
 timeout 60s bash -c 'while [ "$(docker ps -a|grep sshd1)" = "" ];do printf ".";sleep 2s;done'   && \
 printf "☑️\n- Target Host 2..." && \
 timeout 60s bash -c 'while [ "$(docker ps -a|grep sshd2)" = "" ];do printf ".";sleep 2s;done'   && \
-&& echo -e "☑️\n- Ready! 😀"
+echo -e "☑️\n- Ready! 😀"

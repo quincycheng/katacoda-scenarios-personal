@@ -1,2 +1,1 @@
-Wonderful! You've learnt how to install Ansible & Ansible-Conjur role for retreiving secrets from Conjur
-
+Wonderful! You've learned how to secure Ansible using Conjur to protect SSH secrets

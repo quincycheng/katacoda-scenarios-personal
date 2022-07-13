@@ -16,3 +16,15 @@ With this fully interactive hosted tutorial you will learn how to secure Ansible
 </td></tr></table>
 All you need is a web browser and a few minutes to get started; no need to install anything!
 Let's get started!
+
+Two Linux hosts with service user accounts are prepared:
+
+**Host 1**
+- IP: `172.17.0.2`
+- User: `service01`
+- Password: `W/4m=cS6QSZSc*nd`
+
+**Host 2**
+- IP: `172.17.0.3`
+- User: `service02`
+- Password: `5;LF+J4Rfqds:DZ8`

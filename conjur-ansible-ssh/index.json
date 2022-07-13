@@ -1,12 +1,12 @@
 {
-  "title": "Using Conjur to secure SSH secrets for Ansible",
-  "description": "Learn how to retreive SSH secrets from Conjur for Ansible connecting to multiple hosts",
+  "title": "Secure Ansible Playbook Secrets with Conjur",
+  "description": "With this fully interactive hosted tutorial you will learn how to secure Ansible automation by keeping unsecured secrets out of Playbooks with Conjur open source secrets management.",
   "icon": "fa-redhat",
   "details": {
     "steps": [
       {
-        "title": "Install Ansible",
-        "text": "ansible.md"
+        "title": "The Setup",
+        "text": "accounts.md"
       },
       {
         "title": "Typical Playbook",
@@ -16,45 +16,57 @@
         "title": "The Risk",
         "text": "risk.md"
       },
-      {
+            {
         "title": "The Plan",
         "text": "plan.md"
-      },
-      {
-        "title": "Setting Up Role & Lookup Plugin",
-        "text": "galaxy.md"
       },
       {
         "title": "Install Conjur",
         "text": "conjur.md"
       },
       {
-        "title": "Configure Conjur Policy & Secrets",
+        "title": "Conjur CLI",
+        "text": "conjur_cli.md"
+      },
+      
+      {
+        "title": "Conjur Policy",
         "text": "policy.md"
       },
       {
-        "title": "Ansible Playbook",
-        "text": "playbook.md"
+        "title": "Load Policies",
+        "text": "load-policy.md"
+      },
+      {
+        "title": "App Identity",
+        "text": "galaxy.md"
+      },
+      {
+        "title": "The Secrets",
+        "text": "secrets.md"
+      },
+      {
+        "title": "Securing Playbook",
+        "text": "secure-playbook.md"
+      },
+      {
+        "title": "Risk Remediated",
+        "text": "risk2.md"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "code": "startHosts.sh"
+      "courseData": "background.sh",
+      "code": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
-    },
-    "assets": {
-      "host01": [
-        { "file": "*", "target": "/root" },
-        { "file": "*.sh", "target": "/root", "chmod": "+x" }
-      ]
     }
   },
   "environment": {
     "uilayout": "terminal-terminal"
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "conjur-poc-cluster-running"
   }
 }

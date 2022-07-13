@@ -9,8 +9,8 @@ RUN apk add --no-cache \
     && echo "root:$(openssl rand 96 | openssl enc -A -base64)" | chpasswd 
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
  
-RUN adduser --home /tmp -s /bin/sh -D service01
-RUN adduser --home /tmp -s /bin/sh -D service02
+RUN adduser -D service01
+RUN adduser -D service02
 RUN echo -n 'service01:W/4m=cS6QSZSc*nd' | chpasswd
 RUN echo -n 'service02:5;LF+J4Rfqds:DZ8' | chpasswd
 

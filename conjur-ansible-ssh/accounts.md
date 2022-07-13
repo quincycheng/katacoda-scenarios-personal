@@ -1,18 +1,23 @@
 
-In this tutorial, 2 servers will be used and prepared for you.
+In this tutorial, 2 target hosts will be used and prepared for you.
 
-## Local Server (Host 1)
-- IP: `[[HOST1_IP]]`
-- Software installed:
+## Local Server
+- IP: `172.17.0.1`
+- Systems that are going to be installed:
   - CyberArk Conjur OSS 
   - Ansible
+
+## Remote Server (Host 1)
+- IP: `172.17.0.2`
+- Software installed:
   - sshd
 - Service account:
    - username: `service01`
    - password: `W/4m=cS6QSZSc*nd`
 
+
 ## Remote Server (Host 2)
-- IP: `[[HOST2_IP]]`
+- IP: `172.17.0.3`
 - Software installed:
   - sshd
 - Service account:

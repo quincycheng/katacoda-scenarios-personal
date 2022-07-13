@@ -9,6 +9,10 @@
         "text": "accounts.md"
       },
       {
+        "title": "Setup Ansible",
+        "text": "ansible.md"
+      },
+      {
         "title": "Typical Playbook",
         "text": "insecure-playbook.md"
       },

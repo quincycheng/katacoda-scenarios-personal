@@ -10,7 +10,7 @@ cat > ./jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml << EOF
   <adminAddress>address not configured yet &lt;nobody@nowhere&gt;</adminAddress>
   <jenkinsUrl>{{TRAFFIC_HOST1_8081}}</jenkinsUrl>
 </jenkins.model.JenkinsLocationConfiguration>
-EOF
+EOF && \
 export CONJUR_DATA_KEY="$(docker-compose run --no-deps --rm conjur data-key generate)" && \
 docker-compose up -d  && \
 echo "$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' conjur_server) conjur" >> /etc/hosts

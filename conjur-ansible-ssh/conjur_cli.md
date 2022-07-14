@@ -19,7 +19,7 @@ To check the version installed, execute:
 You only to initialize Conjur CLI once.
 
 ```
-conjur init  -a demo-u {{TRAFFIC_HOST1_8080}} 
+conjur init  -a demo -u {{TRAFFIC_HOST1_8080}} 
 ```{{execute}}
 
 If `Trust this certificate? yes/no (Default: no):` is prompted, answer:

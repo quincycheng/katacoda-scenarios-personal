@@ -50,7 +50,7 @@ services:
       - /usr/local/bin/docker:/usr/local/bin/docker
 
   http-authn-server:
-    image: quincycheng/killer-coda-http-authn-server:latest
+    image: quincycheng/killercoda-http-authn-server:latest
     ports:
      - 8082:80
     container_name: http-auth-server

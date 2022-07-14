@@ -1,7 +1,7 @@
 
 Let's build the project and make sure it's working
 
-1. Click on ["Typical Freestyle project"]({{TRAFFIC_HOST1_8081}}/job/Demo/job/Typical%20Freestyle%20Project/) to go back the project page 
+1. Click on ["Typical Freestyle project"]({{TRAFFIC_HOST1_8081}}/job/Demo/job/Typical_Freestyle_Project/) to go back the project page 
    ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/02-jenkins_typical_freestyle.PNG)
 
 2. Click "Build Now" on the left.   After a moment, a new build history will be shown

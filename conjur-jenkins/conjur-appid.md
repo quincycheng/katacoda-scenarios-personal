@@ -6,23 +6,20 @@ The following steps create Conjur policy that defines the Jenkins host and adds 
 1. Declare a policy branch for Jenkins & save it as a .yml file
 
 ```
-docker-compose exec client bash
 cat > conjur.yml << EOF
 - !policy
   id: jenkins-frontend
 EOF
-exit
 ```{{execute}}
 
 2. You may change the id in the above example if desired
 3. Load the policy into Conjur under root: 
 
-`docker-compose exec client conjur policy load --replace root /conjur.yml`{{execute}}
+`conjur policy load -b root -f conjur.yml`{{execute}}
 
 4. Declare the layer and Jenkins host in another file. Copy the following policy as a template & save it.
 
 ```
-docker-compose exec client bash
 cat > jenkins-frontend.yml << EOF
 - !layer
 - !host frontend-01
@@ -30,7 +27,6 @@ cat > jenkins-frontend.yml << EOF
   role: !layer
   member: !host frontend-01
 EOF
-exit
 ```{{execute}}
 
 This policy does the following: 
@@ -44,13 +40,13 @@ Change the following items:
 
 5. Load the policy into Conjur under the Jenkins policy branch you declared previously: 
 
-`docker-compose exec client conjur policy load jenkins-frontend /jenkins-frontend.yml | tee frontend.out`{{execute}}
+`conjur policy load -b jenkins-frontend -f jenkins-frontend.yml | tee frontend.out`{{execute}}
 
 As it creates each new host, Conjur returns an API key.
 
 We will use the host entity later within this tutorial, so let's put it in memory
 ```
-export frontend_api_key=$(tail -n +2 frontend.out | jq -r '.created_roles."quick-start:host:jenkins-frontend/frontend-01".api_key')
+export frontend_api_key=$(cat frontend.out | jq -r '.created_roles."quick-start:host:jenkins-frontend/frontend-01".api_key')
 echo $frontend_api_key
 ```{{execute}}
 
@@ -65,16 +61,14 @@ If variables are already defined, you need only add the Jenkins layer to an exis
 7. Declare a policy branch for the application & save it
 
 ```
-docker-compose exec client bash
 cat > conjur2.yml << EOF
 - !policy
   id: jenkins-app
 EOF
-exit
 ```{{execute}}
 
 8. You may change the id in the above example.
 
 9. Load the policy into Conjur: 
 
-`docker-compose exec client conjur policy load root /conjur2.yml`{{execute}}
+`conjur policy load -b root -f conjur2.yml`{{execute}}

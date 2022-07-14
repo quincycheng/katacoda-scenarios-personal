@@ -1,13 +1,12 @@
 
-The following steps define the connection to the DAP appliance. This is typically a one-time configuration.
+The following steps define the connection to Conjur. This is typically a one-time configuration.
 
-You may need to login to Jenkins again after restart.
-Jenkins user name is `admin`{{copy}} and password is `344827fbdbfb40d5aac067c7a07b9230`{{copy}}
+In case your Jenkins session has been time-out, Jenkins user name is `admin`{{copy}} and password is `344827fbdbfb40d5aac067c7a07b9230`{{copy}}
 
 
 1. Navigate to Manage Jenkins > Manage Credentials > (global) > Add Credentials, the [Global credentials (unrestricted)]({{TRAFFIC_HOST1_8081}}/credentials/store/system/domain/_/newCredentials) page should be shown
 
-2. On the form that appears, configure the login credentials. These are credentials for the Jenkins host to log into DAP.
+2. On the form that appears, configure the login credentials. These are credentials for the Jenkins host to log into Conjur.
 
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/04-conn.PNG)
 

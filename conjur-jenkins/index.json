@@ -35,6 +35,10 @@
         "text": "conjur-setup.md"
       },
       {
+        "title": "Conjur CLI",
+        "text": "conjur-cli.md"
+      },
+      {
         "title": "App ID",
         "text": "conjur-appid.md"
       },
@@ -47,7 +51,7 @@
         "text": "conjur-plugin.md"
       },
       {
-        "title": "Configure Jenkins-DAP connection",
+        "title": "Configure Jenkins-Conjur connection",
         "text": "conjur-conn.md"
       },
       {

@@ -1,3 +1,4 @@
-FROM python:3.10
-RUN  pip install --no-cache-dir SimpleHTTPAuthServer
-CMD ["python","-m","SimpleHTTPAuthServer","80","theServerAccount:NotSoSecureSecret"]
+FROM python:3.9-alpine
+RUN pip install sauth
+
+CMD ["sauth","theServerAccount","NotSoSecureSecret","0.0.0.0","80"]

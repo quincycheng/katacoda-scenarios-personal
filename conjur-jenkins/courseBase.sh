@@ -45,16 +45,21 @@ services:
       - 50000:50000
     container_name: jenkins
     volumes:
-      - /root/katacoda-env-conjur-jenkins/jenkins_home:/var/jenkins_home
+      - /root/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/usr/local/bin/docker
 
-  http-auth-server:
-    image: quincycheng/http-authn-server:latest
+  http-authn-server:
+    image: quincycheng/killer-coda-http-authn-server:latest
     ports:
      - 8082:80
     container_name: http-auth-server
 EOF
+
+docker-compose pull database &
+docker-compose pull conjur &
+docker-compose pull client &
+docker-compose pull http-authn-server &
 
 
 # Get jenkins_home

@@ -61,8 +61,11 @@ docker-compose pull conjur &
 docker-compose pull client &
 docker-compose pull http-authn-server &
 
+apt install -y jq & 
 
 # Get jenkins_home
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \
 mv katacoda-env-conjur-jenkins/jenkins_home . && \
 rm -rf katacoda-env-conjur-jenkins
+
+

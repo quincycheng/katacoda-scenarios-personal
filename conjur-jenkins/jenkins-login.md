@@ -14,3 +14,4 @@ Please click the above link again in 1 or 2 minutes
 
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/01-jenkins_signed_in.PNG)
 
+3. Now let's set the Jenkins URL

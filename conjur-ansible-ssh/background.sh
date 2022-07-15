@@ -1,7 +1,6 @@
 #!/bin/bash
 
 curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.conjur2022.yml && \
-docker-compose pull & 
 
 mkdir insecure-playbook
 cat <<EOF > insecure-playbook/inventory
@@ -112,3 +111,5 @@ EOF
 
 docker run --name sshd1 -P -d quincycheng/killercoda-sshd-host:latest && \
 docker run --name sshd2 -P -d quincycheng/killercoda-sshd-host:latest 
+
+docker-compose pull & 

@@ -25,7 +25,7 @@ Any identifier included in the URL must be URL-encoded to be recognized by the C
 ```
 source showSettings.sh && curl -s -H "Authorization: Token token=\"${access_token}\"" \
      -X PUT -d "$(< conjur.yml)" \
-     {{TRAFFIC_HOST1_8080}}.environments.katacoda.com/policies/demo/policy/root \
+     {{TRAFFIC_HOST1_8080}}/policies/demo/policy/root \
      | jq .
 ```{{execute}}
 
@@ -48,7 +48,7 @@ And load it to Conjur
 ```
 source showSettings.sh && curl -s -H "Authorization: Token token=\"${access_token}\"" \
      -X POST -d "$(< db1.yml)" \
-     {{TRAFFIC_HOST1_8080}}.environments.katacoda.com/policies/demo/policy/db \
+     {{TRAFFIC_HOST1_8080}}/policies/demo/policy/db \
      | jq .
 ```{{execute}}
 
@@ -77,7 +77,7 @@ And load it to Conjur
 ```
 source showSettings.sh && curl -s -H "Authorization: Token token=\"${access_token}\"" \
      -X POST -d "$(< db2.yml)" \
-     {{TRAFFIC_HOST1_8080}}.environments.katacoda.com/policies/demo/policy/db \
+     {{TRAFFIC_HOST1_8080}}/policies/demo/policy/db \
      | jq .
 ```{{execute}}
 

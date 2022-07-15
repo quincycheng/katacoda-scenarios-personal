@@ -1,5 +1,5 @@
 {
-  "title": "👍 Conjur REST API",
+  "title": "WIP - Conjur REST API",
   "description": "Learn how to use REST API for CyberArk Conjur",
   "difficulty": "Beginner", 
   "time": "15-30 mins",
@@ -18,7 +18,20 @@
       "courseData": "background.sh",
       "code": "foreground.sh"
    },
-
+   "assets": {
+    "client": [
+      {
+        "file": "showSettings.sh",
+        "target": "~/tutorial",
+        "chmod":"+x"
+      },
+      {
+        "file": "setupConjur.sh",
+        "target": "~/tutorial",
+        "chmod":"+x"
+      }
+    ]
+   },
     "finish": {
       "text": "finish.md"
     }

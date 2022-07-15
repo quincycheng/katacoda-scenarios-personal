@@ -20,7 +20,10 @@ Your HTTP/REST client probably provides HTTP basic authentication support. For e
 
 Note that machine roles (Hosts) do not have passwords and do not need to login.
 
-`export refresh_token=$(curl -s --user admin:$conjur_admin {{TRAFFIC_HOST1_8080}}/authn/demo/login) && echo $refresh_token`{{execute}}
+```
+export conjur_url={{TRAFFIC_HOST1_8080}}
+export refresh_token=$(curl -s --user admin:$conjur_admin {{TRAFFIC_HOST1_8080}}/authn/demo/login) && echo $refresh_token
+```{{execute}}
 
 
 ### Authenticate

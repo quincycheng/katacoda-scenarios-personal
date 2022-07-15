@@ -1,13 +1,10 @@
 {
-  "title": "Secretless Broker on Kubernetes",
+  "title": "WIP: Secretless Broker on Kubernetes",
   "icon": "fa-kubernetes",
   "description": "Learn how to use Secretless Broker on Kubernetes",
   "details": {
     "steps": [
-      { "title": "Overview", "text": "overview.md" },
-
-      { "title": "Start Kubernetes", "text": "k8s-1.md" },
-      
+      { "title": "Overview", "text": "overview.md" },      
       { "title": "Typical K8S app", "text": "insecure-1.md" },
       { "title": "Testing the app", "text": "insecure-2.md" },
       { "title": "The Risk", "text": "insecure-3.md" },

@@ -22,7 +22,7 @@ docker-compose up -d
 ### Conjur Account 
 ```
 docker-compose exec conjur conjurctl account create demo | tee admin_key 
-export conjur_admin=$(grep API admin_key | cut -d: -f2 | tr -d ' \r\n')
+export conjur_admin="$(grep API admin_key | cut -d: -f2 | tr -d ' \r\n')"
 ```{{execute}}
 
 In the end of the installation, an admin account will be created and the API key for admin will be displayed.   For demo purpose, we will keep it in `conjur_admin` environment variable.   

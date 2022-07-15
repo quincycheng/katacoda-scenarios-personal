@@ -24,8 +24,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
-    "uimessage1": "\u001b[32mWelcome to this Conjur tutorial\u001b[m\r\n"
+    "uilayout": "terminal"
   },
   "backend": {
     "imageid": "ubuntu"

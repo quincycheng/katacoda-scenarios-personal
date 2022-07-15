@@ -1,5 +1,4 @@
 #!/bin/bash
-set +H
 clear && printf "Verifying environment...\n- Preparing docker-compose files..." && \
 sleep 1s && \
 timeout 30s bash -c 'while ! [ -f /root/docker-compose.yml ];do printf ".";sleep 2s;done'  && \

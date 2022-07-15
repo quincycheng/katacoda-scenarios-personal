@@ -20,11 +20,14 @@ docker-compose up -d
 
 
 ### Conjur Account 
+
+Now, we can create an account.
+The API key for admin will be displayed.   
+
 ```
 docker-compose exec conjur conjurctl account create demo | tee admin_key 
 ```{{execute}}
 
-In the end of the installation, an admin account will be created and the API key for admin will be displayed.   
 For demo purpose, we will keep it in `conjur_admin` environment variable.   
 Please keep it safe.
 

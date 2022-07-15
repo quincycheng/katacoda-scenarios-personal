@@ -1,69 +1,29 @@
 
 
-In this section, we'll configure the following items for setting up the Conjur client:
+### Conjur Init
 
-1. Alias for CLI
-2. Reset Admin password
-3. Logging in
-
-
-## Alias for Conjur CLI
-
-Conjur CLI client can be either installed as [Ruby gem](https://docs.conjur.org/Latest/en/Content/Tools/CLI_Install_CLI.htm?tocpath=Setup%7C_____2#ruby-gem) or [Docker Container](https://docs.conjur.org/Latest/en/Content/Tools/CLI_Install_CLI.htm?tocpath=Setup%7C_____2#docker-container).
-In order to have the best of both worlds, we will create an alias to execute the CLI as container
+You only to initialize Conjur CLI once.
 
 ```
-export CONJUR_URL=$(kubectl describe svc conjur-cluster-conjur-oss -n conjur-server |grep Endpoints | awk '{print $2}')
-export SERVICE_IP=$(echo $CONJUR_URL | awk  -F ':' '{print $1}')
-                                          
-alias conjur='docker run --rm -it --add-host conjur.demo.com:$SERVICE_IP -v $(pwd):/root cyberark/conjur-cli:5 '
+conjur init  -a default -u https://conjur.demo.com:9443
 ```{{execute}}
 
-In your own environment, you may wish to add it in shell script file, e.g. `~/.bashrc` or `~/.zshrc`
+If `Trust this certificate? yes/no (Default: no):` is prompted, answer:
+ `yes`{{execute}}
 
-## Initalize Conjur CLI
+If the above command returns an error message, that means the system is being started.
+Please wait for a moment and try again.
 
-To initialize the client, execute:
-`conjur init --url https://conjur.demo.com:9443  --account default`{{execute}}
 
-Trust this certificate: `yes`{{execute}}
+### Login to Conjur
 
+Let's login to Conjur
 ```
-Wrote certificate to /root/conjur-default.pem
-Wrote configuration to /root/.conjurrc
-```
-
-## Login 
-
-Now, we will need to logon to Conjur CLI.
-Remember the admin API key?  Don't worry, we can get it by executing `grep admin admin.out`{{execute}}
-
-```
-conjur authn login -u admin -p $(grep admin admin.out | cut -c20-)
+conjur login -i admin -p "$(grep API admin.out | cut -d: -f2 | tr -d ' \r\n')"
 ```{{execute}}
 
-## Reset Admin Password
-
-This step is optional.   However, like any other systems, it is highly recommended to change the password regularly.
-Visit [CyberArk.com](https://cyberark.com) to learn how CyberArk can help you to develop and deploy effective identity security strategies.
-
-Let's update our admin password to `MySecretP@ss1`
-```
-conjur user update_password -p MySecretP@ss1
-```{{execute}}
-
-Next, Log off & on again with the new password `MySecretP@ss1`
-```
-conjur authn logout && \
-conjur authn login -u admin
-```{{execute}}
-
-Please enter admin's password (it will not be echoed): `MySecretP@ss1`{{execute}}
-```
-Logged in
-```
-
-Awesome.   Now the CLI is setup & admin password has been changed.
+Please note that in this tutorial, we have saved `api_key` in `admin.out` file and as `api_key` environment variable.
+In production, please keep the `api_key` in a safe location
 
 
 

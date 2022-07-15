@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat <<EOF > showSettings.sh
+cat <<'EOF' > showSettings.sh
 #!/bin/bash
 refresh_token=$(curl -s --user admin:$conjur_admin ${conjur_url}/authn/demo/login)
 response=$(curl -s -X POST ${conjur_url}/authn/demo/admin/authenticate -d ${refresh_token})

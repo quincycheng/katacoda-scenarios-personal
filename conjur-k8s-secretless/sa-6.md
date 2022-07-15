@@ -62,7 +62,7 @@ You can review the generated policy by `cat secretless/app-policy.yml`{{execute}
 
 Let's load the generated policy by executing:
 ```
-conjur policy load root /root/secretless/app-policy.yml
+conjur policy load -b root -f ./secretless/app-policy.yml
 ```{{execute}}
 
 ## Grant the Conjur instance access to pods
@@ -122,7 +122,7 @@ kubectl create -f secretless/conjur-authenticator-role.yml
 
 
 ### Store the Conjur SSL certificate in a ConfigMap
-The Conjur SSL certificate is avaliable as `conjur-default.pem`
+The Conjur SSL certificate is avaliable as `conjur-server.pem`
 
 Use the following code snippet to store the Conjur SSL Certificate:
 ```
@@ -132,7 +132,7 @@ kubectl \
   --namespace "${APP_NAMESPACE}" \
   create configmap \
   conjur-cert \
-  --from-file=ssl-certificate="conjur-default.pem"
+  --from-file=ssl-certificate="conjur-server.pem"
 ```{{execute}}
 
 ### Store the Secretless configuration in a ConfigMap

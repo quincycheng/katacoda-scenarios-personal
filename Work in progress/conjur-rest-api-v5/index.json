@@ -14,7 +14,9 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "https://www.conjur.org"
+      "credits": "https://www.conjur.org",
+      "courseData": "background.sh",
+      "code": "foreground.sh"
    },
    "assets": {
     "client": [

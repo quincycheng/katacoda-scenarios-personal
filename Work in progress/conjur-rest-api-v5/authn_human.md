@@ -20,7 +20,7 @@ Your HTTP/REST client probably provides HTTP basic authentication support. For e
 
 Note that machine roles (Hosts) do not have passwords and do not need to login.
 
-`export refresh_token=$(curl -s --user admin:$conjur_admin https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/authn/demo/login) && echo $refresh_token`{{execute}}
+`export refresh_token=$(curl -s --user admin:$conjur_admin {{TRAFFIC_HOST1_8080}}/authn/demo/login) && echo $refresh_token`{{execute}}
 
 
 ### Authenticate
@@ -30,7 +30,7 @@ Gets a short-lived access token, which can be used to authenticate requests to (
 The login must be URL encoded. For example, alice@devops must be encoded as alice%40devops.
 
 ```
-export response=$(curl -s -X POST https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/authn/demo/admin/authenticate -d ${refresh_token})
+export response=$(curl -s -X POST {{TRAFFIC_HOST1_8080}}/authn/demo/admin/authenticate -d ${refresh_token})
 export access_token=$(echo -n $response | base64 | tr -d '\r\n') && echo $access_token
 ```{{execute}}
 

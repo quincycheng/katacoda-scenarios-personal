@@ -2,7 +2,7 @@
 
 Let's install Conjur CLI by executing the following command.   It will take a while.
 ```
-apt install -y python3-pip
+apt install -y python3-pip && \
 pip install conjur
 ```{{execute}}
 

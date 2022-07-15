@@ -1,4 +1,7 @@
 #!/bin/bash 
+
+kubectl taint nodes --all node.kubernetes.io/disk-pressure-
+
 git clone https://github.com/quincycheng/katacoda-secretless-files.git > /dev/null 2>&1 && \
 cd katacoda-secretless-files/ && \
 apt install -y wamerican && \

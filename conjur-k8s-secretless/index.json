@@ -24,7 +24,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "intro-fg.sh",
+      "courseData": "background.sh",
+      "code": "foreground.sh",
       "credits": "https://www.conjur.org"
    },
     "finish": {

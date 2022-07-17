@@ -21,7 +21,11 @@ EOF
 
 chmod +x *.sh
 
-curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.conjur2022.yml  
+curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.docker-compose.conjur.preconfigured.yml
+cat <<'EOF' > conjur_creds
+CONJUR_ADMIN=3s1jxkt1e859d1atqw152e070dv2c6hysp2c35cxx1vj331g1n69cba
+CONJUR_DATA_KEY=B/gTTlJH1mGU3rcYwp+ShzhuGK5kV6JEatXLw51MHc8
+EOF
 
 apt install -y jq & 
 

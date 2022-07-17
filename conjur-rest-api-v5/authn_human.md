@@ -22,6 +22,7 @@ Note that machine roles (Hosts) do not have passwords and do not need to login.
 
 ```
 export conjur_url={{TRAFFIC_HOST1_8080}}
+export conjur_admin=3s1jxkt1e859d1atqw152e070dv2c6hysp2c35cxx1vj331g1n69cba
 export refresh_token=$(curl -s --user admin:$conjur_admin {{TRAFFIC_HOST1_8080}}/authn/demo/login) && echo $refresh_token
 ```{{execute}}
 
@@ -33,7 +34,7 @@ Gets a short-lived access token, which can be used to authenticate requests to (
 The login must be URL encoded. For example, alice@devops must be encoded as alice%40devops.
 
 ```
-export response=$(curl -s -X POST {{TRAFFIC_HOST1_8080}}/authn/demo/admin/authenticate -d ${refresh_token})
+export response=$(curl -s -X POST {{TRAFFIC_HOST1_8080}}/authn/default/admin/authenticate -d ${refresh_token})
 export access_token=$(echo -n $response | base64 | tr -d '\r\n') && echo $access_token
 ```{{execute}}
 

@@ -9,28 +9,12 @@ To verify, we can display its usage by `curl --help`{{execute}}
 
 ### Starting Conjur
 
-We will install a Conjur OSS environment as the server.   It will take a few moments.
+We will install a pre-configured Conjur OSS environment as the server.   
+`default` account is created and password of `admin` is `3s1jxkt1e859d1atqw152e070dv2c6hysp2c35cxx1vj331g1n69cba`
+It will take a few moments.
 
 ```
-docker-compose pull && \
-docker-compose run --no-deps --rm conjur data-key generate > data_key && \
-export CONJUR_DATA_KEY="$(< data_key)" && \
-docker-compose up -d 
+docker-compose up -d
 ```{{execute}}
 
-
-### Conjur Account 
-
-Now, we can create an account.
-The API key for admin will be displayed.   
-
-```
-docker-compose exec conjur conjurctl account create demo | tee admin_key 
-```{{execute}}
-
-For demo purpose, we will keep it in `conjur_admin` environment variable.   
-Please keep it safe.
-
-```
-export conjur_admin="$(grep API admin_key | cut -d: -f2 | tr -d ' \r\n')"
-```{{execute}}
+If you'd like to learn more about deploying Conjur OSS, please refer to https://www.conjur.org/

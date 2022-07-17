@@ -1,7 +1,60 @@
 #!/bin/bash
 
 #docker-compose.yml
-cat <<EOF > docker-compose.yml
+
+cat <<'EOF' > docker-compose.yml
+version: '3'
+services:
+  database:
+    image: quincycheng/conjur-db:20220717
+    container_name: conjur_db
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 8432:5432
+
+  conjur:
+    image: quincycheng/conjur-server:20220717
+    container_name: conjur_server
+    command: server
+    environment:
+      DATABASE_URL: postgres://postgres@database/postgres
+      CONJUR_DATA_KEY: $CONJUR_DATA_KEY
+      CONJUR_AUTHENTICATORS:
+    depends_on:
+    - database
+    restart: on-failure
+    ports:
+      - 8080:80
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - 8081:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - /root/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
+
+  http-authn-server:
+    image: quincycheng/killercoda-http-authn-server:latest
+    ports:
+     - 8082:80
+    container_name: http-auth-server
+EOF
+
+cat <<'EOF' > .env
+CONJUR_ADMIN=b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
+CONJUR_DATA_KEY=B/gTTlJH1mGU3rcYwp+ShzhuGK5kV6JEatXLw51MHc8=
+EOF
+
+
+
+cat <<EOF > docker-compose-outdated.yml
 version: '3'
 services:
   database:

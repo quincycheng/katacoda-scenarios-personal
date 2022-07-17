@@ -21,8 +21,6 @@ EOF
 
 chmod +x *.sh
 
-#curl -o docker-compose.yml https://quincycheng.github.io/docker-compose.docker-compose.conjur.preconfigured.yml
-
 cat <<'EOF' > docker-compose.yml
 version: '3'
 services:

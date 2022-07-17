@@ -22,7 +22,7 @@ Note that machine roles (Hosts) do not have passwords and do not need to login.
 
 ```
 export conjur_url={{TRAFFIC_HOST1_8080}}
-export conjur_admin=3s1jxkt1e859d1atqw152e070dv2c6hysp2c35cxx1vj331g1n69cba
+export conjur_admin=b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 export refresh_token=$(curl -s --user admin:$conjur_admin {{TRAFFIC_HOST1_8080}}/authn/demo/login) && echo $refresh_token
 ```{{execute}}
 

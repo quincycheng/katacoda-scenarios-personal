@@ -29,7 +29,7 @@ To learn more, visit [CyberArk Conjur Doc](https://docs.conjur.org/Latest/en/Con
 
 6. Fill in the form
 
-- Account: `quick-start`{{copy}}
+- Account: `default`{{copy}}
 - Appliance URL: `{{TRAFFIC_HOST1_8080}}`{{copy}}
 - Conjur Authn Credential: `host/jenkins-frontend/frontend-01/*****`{{copy}}
 

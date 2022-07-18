@@ -11,7 +11,7 @@ cat > ./jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml << EOF
   <jenkinsUrl>{{TRAFFIC_HOST1_8081}}</jenkinsUrl>
 </jenkins.model.JenkinsLocationConfiguration>
 EOF
-sleep 1s && export CONJUR_DATA_KEY="$(docker-compose run --no-deps --rm conjur data-key generate)" && \
+sleep 1s && \
 docker-compose up -d  && \
 echo "$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' conjur_server) conjur" >> /etc/hosts
 ```{{execute}}

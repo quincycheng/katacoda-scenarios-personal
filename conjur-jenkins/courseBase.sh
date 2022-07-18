@@ -111,10 +111,11 @@ EOF
 
 docker-compose pull database &
 docker-compose pull conjur &
-docker-compose pull client &
+#docker-compose pull client &
 docker-compose pull http-authn-server &
+docker-compose pull jenkins &
 
-apt install -y jq & 
+apt install -y jq python3-pip && pip install conjur & 
 
 # Get jenkins_home
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \

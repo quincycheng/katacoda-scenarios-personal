@@ -8,6 +8,6 @@ Visiti Jenkins > Demo > Credentials > Folder > Global credentials (unrestricted)
   
 This is the complete Conjur ID of the variable. This includes the policy path where the variable is defined.
 
-Click "OK" to save it
+Click `OK` to save it
 
 In case you get an error, you can verify the credential at ({{TRAFFIC_HOST1_8081}}/job/Demo/credentials/store/folder/domain/_/

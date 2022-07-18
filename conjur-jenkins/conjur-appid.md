@@ -18,7 +18,7 @@ The `root` policy contains 2 policies, `jenkins-frontend` as jenkins application
   id: jenkins-app
 ```
 
-2. Load the policy into Conjur under root: 
+2. Load the policy into Conjur under `root`: 
 
 `conjur policy load -b root -f root.yml`{{execute}}
 
@@ -27,7 +27,7 @@ The `root` policy contains 2 policies, `jenkins-frontend` as jenkins application
 cat jenkins-app.yml
 ```{{execute}}
 
-It declares the layer and Jenkins host.
+It declares the layer and the host.
 
 ```
 # Declare the secrets which are used to access the database
@@ -49,11 +49,11 @@ It declares the layer and Jenkins host.
 
 This policy does the following: 
 
-- Declares a layer that inherits the name of the policy under which it is loaded. In our example, the layer name will become jenkins-frontend.
-- Declares a host named frontend-01
+- Declares a layer that inherits the name of the policy under which it is loaded. In our example, the layer name will become `jenkins-frontend`.
+- Declares a host named `frontend-01`
 - Adds the host into the layer. A layer may have more than one host.
-Change the following items:
-- Change the host name to match the DNS host name of your Jenkins host. Change it in both the !host statement and the !grant statement.
+You may need to change the following items in your own environment:
+- Change the host name to match the DNS host name of your Jenkins host. Change it in both the `!host` statement and the `!grant` statement.
 - Optionally declare additional Jenkins hosts. Add each new host as a member in the !grant statement.
 
 4. Load the policy into Conjur under the Jenkins policy branch you declared previously: 

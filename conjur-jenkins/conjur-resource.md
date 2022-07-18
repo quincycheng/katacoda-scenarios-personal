@@ -8,7 +8,6 @@ cat jenkins-app.yml
 It declares the variables & related privileges.
 
 ```
-cat > jenkins-app.yml << EOF
 #Declare the secrets required by the application
 
 - &variables
@@ -28,8 +27,7 @@ cat > jenkins-app.yml << EOF
 - !grant
   role: !group secrets-users
   member: !layer /jenkins-frontend
-EOF
-```{{execute}}
+```
 
 This policy does the following: 
 - Declares the variables to be retrieved by Jenkins.
@@ -64,7 +62,7 @@ Please note the following lines are added for entitlements.
   member: !layer /jenkins-frontend
 ```
 
-4. 
+4. Load the updated policy by executing
 
 ```
 conjur policy load -b jenkins-app -f jenkins-app.entitled.yml

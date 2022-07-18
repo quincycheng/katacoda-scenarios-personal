@@ -16,7 +16,9 @@ conjur init  -a default -u {{TRAFFIC_HOST1_8080}}
 ```{{execute}}
 
 If `Trust this certificate? yes/no (Default: no):` is prompted, answer:
- `yes`{{execute}}
+ ```
+ yes
+ ```{{execute}}
 
 If the above command returns an error message, that means the system is being started.
 Please wait for a moment and try again.

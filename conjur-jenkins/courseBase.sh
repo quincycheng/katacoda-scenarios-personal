@@ -109,7 +109,6 @@ services:
     container_name: http-auth-server
 EOF
 
-docker-compose pull database &
 docker-compose pull conjur &
 #docker-compose pull client &
 docker-compose pull http-authn-server &
@@ -121,8 +120,6 @@ apt install -y jq python3-pip && pip install conjur &
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \
 mv katacoda-env-conjur-jenkins/jenkins_home . && \
 rm -rf katacoda-env-conjur-jenkins
-
-
 
 
 cat > root.yml << EOF
@@ -178,3 +175,6 @@ cat > jenkins-app.entitled.yml << EOF
   role: !group secrets-users
   member: !layer /jenkins-frontend
 EOF
+
+docker-compose up -d
+

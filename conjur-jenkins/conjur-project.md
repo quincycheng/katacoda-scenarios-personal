@@ -20,7 +20,7 @@ Let's test the setup by copying & updating the project
 6. Click `Add build step` and select `Execute shell`
    Copy and paste the following command to access the web application:
 
-   `curl -Is -u theServerAccount:$CONJUR_SECRET http://http-authn-server`{{copy}}
+   `curl -Is -u theServerAccount:$WEB_PASSWORD http://http-authn-server`{{copy}}
 
 7. Click `Save`
 

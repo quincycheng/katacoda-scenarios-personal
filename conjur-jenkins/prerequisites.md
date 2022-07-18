@@ -1,22 +1,11 @@
 
 # Setup 
 
-Let's setup the environment by executing the following commands:
+The environment is being setup for you
 
-```
-cat > ./jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml << EOF
-<?xml version='1.1' encoding='UTF-8'?>
-<jenkins.model.JenkinsLocationConfiguration>
-  <adminAddress>address not configured yet &lt;nobody@nowhere&gt;</adminAddress>
-  <jenkinsUrl>{{TRAFFIC_HOST1_8081}}</jenkinsUrl>
-</jenkins.model.JenkinsLocationConfiguration>
-EOF
-sleep 1s && \
-docker-compose up -d  && \
-echo "$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' conjur_server) conjur" >> /etc/hosts
-```{{execute}}
+Wait for the "Ready! 😀" message on the right to begin
 
-You should be able to access various systems on this environment by accessing the following links:
+Once ready, you should be able to access various systems on this environment by accessing the following links:
 
 - [Jenkins (port 8081)]({{TRAFFIC_HOST1_8081}})
 - [Target Web System with authenication enabled (port 8082)]({{TRAFFIC_HOST1_8082}})

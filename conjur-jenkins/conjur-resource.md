@@ -2,10 +2,10 @@
 1. Review the jenkins-app policy by executing 
 
 ```
-cat jenkins-app.yml
+cat jenkins-app.entitled.yml
 ```{{execute}}
 
-It declares the variables & related privileges.
+It declares the variables & related privileges, plus entitlements
 
 ```
 #Declare the secrets required by the application
@@ -37,32 +37,6 @@ This policy does the following:
 Change the variable names, the group name, and the layer name as appropriate.
 
 2. Load the policy into Conjur under the `jenkins-app` policy branch you declared previously: 
-
-```
-conjur policy load -b jenkins-app -f jenkins-app.yml
-```{{execute}}
-
-
-### Entitlements
-
-3. To allow Jenkins host to access the secrets, we will update the jenkins-frontend policy accordingly.
-
-To review the updated jenkins-frontend policy, execute:
-
-```
-cat jenkins-app.entitled.yml
-```{{execute}}
-
-Please note the following lines are added for entitlements.
-```
-# Entitlements
-
-- !grant
-  role: !group secrets-users
-  member: !layer /jenkins-frontend
-```
-
-4. Load the updated policy by executing
 
 ```
 conjur policy load -b jenkins-app -f jenkins-app.entitled.yml

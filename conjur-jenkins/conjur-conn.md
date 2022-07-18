@@ -12,12 +12,15 @@ In case your Jenkins session has been time-out, Jenkins user name is `admin`{{co
  - Username: `host/jenkins-frontend/frontend-01`{{copy}}
  - Password: 
 
-  Copy and paste the API key that was returned by DAP when you loaded the policy declaring this host.
-  Forgot it?  No worries, execute `cat frontend.out`{{execute}} to review it
+  Copy and paste the API key that was returned by Conjur when you loaded the policy declaring this host.
+  To review it, execute:
+  ```
+  cat frontend.out
+  ```{{execute}}
 
-3. Click OK.
+3. Click `OK`
 
-You can also decide whether to set up global or folder-level access to DAP, or a combination of both.
+You can also decide whether to set up global or folder-level access to Conjur, or a combination of both.
 
 To learn more, visit [CyberArk Conjur Doc](https://docs.conjur.org/Latest/en/Content/Integrations/jenkins-configure.htm?tocpath=Integrations%7CJenkins%7C_____2#ConfigureJenkinsConjurconnection)
 

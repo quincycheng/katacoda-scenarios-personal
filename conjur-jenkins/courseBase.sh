@@ -45,6 +45,42 @@ services:
     ports:
      - 8082:80
     container_name: http-auth-server
+
+  openssl:
+    image: cyberark/conjur
+    container_name: openssl
+    entrypoint:
+     - openssl
+     - req
+     - -newkey
+     - rsa:2048
+     - -days
+     - "365"
+     - -nodes
+     - -x509
+     - -config
+     - /tmp/conf/tls.conf
+     - -extensions
+     - v3_ca
+     - -keyout
+     - /tmp/conf/nginx.key
+     - -out
+     - /tmp/conf/nginx.crt
+    volumes:
+     - ./conf/tls/:/tmp/conf
+
+  proxy:
+    image: nginx:1.13.6-alpine
+    container_name: nginx_proxy
+    ports:
+      - "8443:443"
+    volumes:
+      - ./conf/:/etc/nginx/conf.d/:ro
+      - ./conf/tls/:/etc/nginx/tls/:ro
+    depends_on:
+    - conjur
+    - openssl
+    restart: on-failure
 EOF
 
 cat <<'EOF' > .env
@@ -54,65 +90,12 @@ EOF
 
 
 
-cat <<EOF > docker-compose-outdated.yml
-version: '3'
-services:
-  database:
-    image: postgres:10.16
-    container_name: postgres_database
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-    ports:
-      - 8432:5432
-  conjur:
-    image: cyberark/conjur
-    container_name: conjur_server
-    command: server
-    environment:
-      DATABASE_URL: postgres://postgres@database/postgres
-      CONJUR_DATA_KEY:
-      CONJUR_AUTHENTICATORS:
-    depends_on:
-    - database
-    restart: on-failure
-    ports:
-      - 8080:80
-
-  client:
-    image: conjurinc/cli5
-    depends_on: [ conjur ]
-    entrypoint: sleep
-    command: infinity
-    environment:
-      CONJUR_APPLIANCE_URL: http://conjur
-      CONJUR_ACCOUNT:
-      CONJUR_AUTHN_API_KEY:
-      CONJUR_AUTHN_LOGIN: admin
-
-  jenkins:
-    image: jenkins/jenkins:lts
-    privileged: true
-    user: root
-    ports:
-      - 8081:8080
-      - 50000:50000
-    container_name: jenkins
-    volumes:
-      - /root/jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/bin/docker:/usr/local/bin/docker
-
-  http-authn-server:
-    image: quincycheng/killercoda-http-authn-server:latest
-    ports:
-     - 8082:80
-    container_name: http-auth-server
-EOF
 
 docker-compose pull conjur &
-#docker-compose pull client &
 docker-compose pull http-authn-server &
 docker-compose pull jenkins &
+docker-compose pull database &
+docker-compose pull proxy &
 
 apt install -y jq python3-pip && pip install conjur & 
 
@@ -120,7 +103,6 @@ apt install -y jq python3-pip && pip install conjur &
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \
 mv katacoda-env-conjur-jenkins/jenkins_home . && \
 rm -rf katacoda-env-conjur-jenkins
-
 
 cat > root.yml << EOF
 - !policy

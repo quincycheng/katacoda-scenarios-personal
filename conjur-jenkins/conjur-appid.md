@@ -20,7 +20,7 @@ The `root` policy contains 2 policies, `jenkins-frontend` as jenkins application
 
 2. Load the policy into Conjur under root: 
 
-`conjur policy load -b root -f conjur.yml`{{execute}}
+`conjur policy load -b root -f root.yml`{{execute}}
 
 3. Review the `root` policy by executing:
 ```

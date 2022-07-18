@@ -39,15 +39,19 @@
         "text": "conjur-cli.md"
       },
       {
-        "title": "App ID",
+        "title": "App Identity",
         "text": "conjur-appid.md"
+      },
+      {
+        "title": "Protected Resource",
+        "text": "conjur-resource.md"
       },
       {
         "title": "Secrets",
         "text": "conjur-variables.md"
       },
       {
-        "title": "Install Plugin",
+        "title": "The Plugin",
         "text": "conjur-plugin.md"
       },
       {

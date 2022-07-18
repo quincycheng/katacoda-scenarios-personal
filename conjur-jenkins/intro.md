@@ -1,17 +1,8 @@
-*Please note that this tutorial refers to offical Conjur tutorial at https://docs.conjur.org/Latest/en/Content/Integrations/jenkins.htm, and modified for Katacoda platform.*
+*Please note that this tutorial refers to offical Conjur tutorial at https://docs.conjur.org/Latest/en/Content/Integrations/jenkins.htm, and modified for Killercoda platform.*
 
 In this tutorial, you will learn how to secure Jenkins pipelines using Conjur & credentials plugins.
 
 The Conjur Jenkins plugin retrieves secrets from Conjur for use in Jenkins pipeline scripts or Freestyle projects.
-
-### Overview
-The conjur-credentials-plugin makes secrets stored in an existing Conjur database available to Jenkins jobs. Jenkins jobs can authenticate to Conjur and access specific secret values for which they have authorization. You store and manage the secrets in Conjur.
-
-We provide the plugin binary, which you install and configure on your Jenkins host.
-
-On the Conjur side, policy defines the Jenkins host and gives it privileges to access Conjur. Conjur policy also defines the variables that will hold the secret values and authorizes Jenkins to access them. The secret values are loaded and managed in Conjur. Policy is also used to set up automatic rotation for supported variables.
-
-When all configurations are in place, Jenkins scripts and projects simply reference the variable using the configured Jenkins ID.
 
 ### Benefits
 The Conjur Jenkins integration provides the following advantages to Jenkins DevOps administrators:

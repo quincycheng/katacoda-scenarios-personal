@@ -1,13 +1,10 @@
 ### Install CLI
 
-Let's install Conjur CLI by executing the following command.   It will take a while.
-```
-apt install -y python3-pip && \
-pip install conjur
-```{{execute}}
-
+Conjur CLI has been installed for you.
 To check the version installed, execute:
-`conjur --version`{{execute}}
+```
+conjur --version
+```{{execute}}
 
 
 ### Conjur Init

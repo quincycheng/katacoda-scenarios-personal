@@ -123,3 +123,58 @@ mv katacoda-env-conjur-jenkins/jenkins_home . && \
 rm -rf katacoda-env-conjur-jenkins
 
 
+
+
+cat > root.yml << EOF
+- !policy
+  id: jenkins-frontend
+
+- !policy
+  id: jenkins-app
+EOF
+
+cat > jenkins-app.yml << EOF
+# Declare the secrets which are used to access the database
+- &variables
+  - !variable web_password
+
+# Define a group which will be able to fetch the secrets
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  # "read" privilege allows the client to read metadata.
+  # "execute" privilege allows the client to read the secret data.
+  # These are normally granted together, but they are distinct
+  #   just like read and execute bits on a filesystem.
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+EOF
+
+cat > jenkins-frontend.yml << EOF
+- !layer
+
+- !host frontend-01
+
+- !grant
+  role: !layer
+  member: !host frontend-01
+EOF
+
+cat > jenkins-app.entitled.yml << EOF
+- &variables
+  - !variable web_password
+
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+
+# Entitlements
+
+- !grant
+  role: !group secrets-users
+  member: !layer /jenkins-frontend
+EOF

@@ -1,33 +1,51 @@
 
-Next, we need to create an application identity for Conjur
+Next, we need to create an application identity for Conjur based on API key
 
 The following steps create Conjur policy that defines the Jenkins host and adds that host to a layer.
 
-1. Declare a policy branch for Jenkins & save it as a .yml file
-
+1. Review the `root` policy by executing:
 ```
-cat > conjur.yml << EOF
-- !policy
-  id: jenkins-frontend
-EOF
+cat root.yml
 ```{{execute}}
 
-2. You may change the id in the above example if desired
-3. Load the policy into Conjur under root: 
+The `root` policy contains 2 policies, `jenkins-frontend` as jenkins application identity and `jenkins-app` as the target web application
+
+```
+- !policy
+  id: jenkins-frontend
+
+- !policy
+  id: jenkins-app
+```
+
+2. Load the policy into Conjur under root: 
 
 `conjur policy load -b root -f conjur.yml`{{execute}}
 
-4. Declare the layer and Jenkins host in another file. Copy the following policy as a template & save it.
+3. Review the `root` policy by executing:
+```
+cat jenkins-app.yml
+```{{execute}}
+
+It declares the layer and Jenkins host.
 
 ```
-cat > jenkins-frontend.yml << EOF
-- !layer
-- !host frontend-01
-- !grant
-  role: !layer
-  member: !host frontend-01
-EOF
-```{{execute}}
+# Declare the secrets which are used to access the database
+- &variables
+  - !variable web_password
+
+# Define a group which will be able to fetch the secrets
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  # "read" privilege allows the client to read metadata.
+  # "execute" privilege allows the client to read the secret data.
+  # These are normally granted together, but they are distinct
+  #   just like read and execute bits on a filesystem.
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+```
 
 This policy does the following: 
 
@@ -38,37 +56,8 @@ Change the following items:
 - Change the host name to match the DNS host name of your Jenkins host. Change it in both the !host statement and the !grant statement.
 - Optionally declare additional Jenkins hosts. Add each new host as a member in the !grant statement.
 
-5. Load the policy into Conjur under the Jenkins policy branch you declared previously: 
+4. Load the policy into Conjur under the Jenkins policy branch you declared previously: 
 
 `conjur policy load -b jenkins-frontend -f jenkins-frontend.yml | tee frontend.out`{{execute}}
 
 As it creates each new host, Conjur returns an API key.
-
-We will use the host entity later within this tutorial, so let's put it in memory
-```
-export frontend_api_key=$(cat frontend.out | jq -r '.created_roles."quick-start:host:jenkins-frontend/frontend-01".api_key')
-echo $frontend_api_key
-```{{execute}}
-
-6. Save the API keys returned in the previous step. You need them later when configuring Jenkins credentials for logging into Conjur.
-
-### Declare variables in Conjur policy
-
-The following steps create Conjur policy that defines each variable and provides appropriate privileges to the Jenkins layer to access those variables.
-
-If variables are already defined, you need only add the Jenkins layer to an existing permit statement associated with the variable. The following steps assume that the required variables are not yet declared in Conjur.
-
-7. Declare a policy branch for the application & save it
-
-```
-cat > conjur2.yml << EOF
-- !policy
-  id: jenkins-app
-EOF
-```{{execute}}
-
-8. You may change the id in the above example.
-
-9. Load the policy into Conjur: 
-
-`conjur policy load -b root -f conjur2.yml`{{execute}}

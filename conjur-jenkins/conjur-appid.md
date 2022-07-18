@@ -22,7 +22,7 @@ The `root` policy contains 2 policies, `jenkins-frontend` as jenkins application
 
 `conjur policy load -b root -f root.yml`{{execute}}
 
-3. Review the `root` policy by executing:
+3. Review the `jenkins-app` policy by executing:
 ```
 cat jenkins-app.yml
 ```{{execute}}

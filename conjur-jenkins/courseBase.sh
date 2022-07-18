@@ -88,8 +88,64 @@ CONJUR_ADMIN=b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 CONJUR_DATA_KEY=B/gTTlJH1mGU3rcYwp+ShzhuGK5kV6JEatXLw51MHc8=
 EOF
 
+mkdir conf
+cat <<'EOF' > conf/default.conf
+server {
+    listen              443 ssl;
+    server_name         proxy;
+    access_log          /var/log/nginx/access.log;
 
+    ssl_certificate     /etc/nginx/tls/nginx.crt;
+    ssl_certificate_key /etc/nginx/tls/nginx.key;
 
+    location / {
+      proxy_pass http://conjur;
+    }
+}
+EOF
+
+mkdir conf/tls
+cat <<'EOF' > conf/tls/tls.conf
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = dn
+x509_extensions = v3_ca # The extentions to add to the self signed cert
+req_extensions  = v3_req
+x509_extensions = usr_cert
+
+[ dn ]
+C=US
+ST=Wisconsin
+L=Madison
+O=CyberArk
+OU=Onyx
+CN=proxy
+
+[ usr_cert ]
+basicConstraints=CA:FALSE
+nsCertType                      = client, server, email
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth, clientAuth, codeSigning, emailProtection
+nsComment                       = "OpenSSL Generated Certificate"
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+
+[ v3_req ]
+extendedKeyUsage = serverAuth, clientAuth, codeSigning, emailProtection
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+[ v3_ca ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = localhost
+DNS.2 = proxy
+IP.1 = 127.0.0.1
+EOF
 
 docker-compose pull conjur &
 docker-compose pull http-authn-server &

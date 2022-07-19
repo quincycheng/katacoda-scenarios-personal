@@ -1,5 +1,4 @@
 
-### Benefits
 The Conjur Jenkins integration provides the following advantages to Jenkins DevOps administrators:
 
 - **Security**. Secret values are stored and obtained securely. Secrets are not exposed in Jenkins jobs or referenced files.
@@ -14,4 +13,4 @@ The Conjur Jenkins integration provides the following advantages to Jenkins DevO
 
 - **Simplification**. The plugin simplifies Jenkins job and project creation by requiring only a reference ID to a secret.
 
-- **Familiarity**. The plugin is configured using the Jenkins UI, a familiar interface for Jenkins users.
+- **Familiarity**. The plugin is configured using the Jenkins UI, a familiar interface for Jenkins users

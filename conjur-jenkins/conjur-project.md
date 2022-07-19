@@ -1,8 +1,8 @@
 
 1. To create a new project, go to Demo & click ["New Item"]({{TRAFFIC_HOST1_8081}}/job/Demo/newJob)
 
- - Enter an item name: `Secure_Freestyle_Project`{{copy}}
- - Type: `Freestyle Project`
+   - Enter an item name: `Secure_Freestyle_Project`{{copy}}
+   - Type: `Freestyle Project`
 
 2. Click OK
 
@@ -11,8 +11,8 @@
 
 4. Under Binding, click `Add` > `Conjur Secret Credentials`
 
-- Variable : `WEB_PASSWORD`{{copy}}
-- Credentials > Specific credentials: `ConjurSecret:jenkins-app/web_password/*Conjur*()`
+   - Variable : `WEB_PASSWORD`{{copy}}
+   - Credentials > Specific credentials: `ConjurSecret:jenkins-app/web_password/*Conjur*()`
 
 5. Click `Build` tab at the top
 

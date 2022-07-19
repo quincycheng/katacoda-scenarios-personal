@@ -13,6 +13,8 @@ printf "✅\n- Installing Python PIP..." && \
 timeout 60s bash -c 'while [ ! $(command -v pip) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing jq..." && \
 timeout 60s bash -c 'while [ ! $(command -v jq) ];do printf ".";sleep 2s;done'   && \
+printf "✅\n- Installing Ansible Core..." && \
+timeout 60s bash -c 'while [ ! $(command -v ansible) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing Conjur CLI..." && \
 timeout 60s bash -c 'while [ ! $(command -v conjur) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Downloading Conjur policy files..." && \

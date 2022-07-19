@@ -11,6 +11,3 @@ With this fully interactive hosted tutorial you will learn how to secure Ansible
 4. Authenticate the control machine to Conjur
 5. Issue the secrets
 6. Playbook fetches secrets from Conjur and executes
-
-All you need is a web browser and a few minutes to get started; no need to install anything!
-Let's get started!

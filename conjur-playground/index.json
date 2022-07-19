@@ -1,5 +1,5 @@
 {
-  "title": "🚧 WIP: Conjur Playground",
+  "title": "🚧 work in progress - Conjur Playground",
   "description": "Preconfigured Conjur OSS",
   "difficulty": "Beginner",
   "time": "15-20 minutes",
@@ -7,9 +7,7 @@
   "details": {
     "steps": [
       {
-        "text": "playground.md",
-        "courseData": "courseBase.sh",
-        "code": "foreground.sh"
+        "text": "playground.md"
       }
     ],
     "intro": {

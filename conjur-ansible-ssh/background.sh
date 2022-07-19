@@ -282,8 +282,13 @@ docker run --name sshd2 -P -d quincycheng/killercoda-sshd-host:latest  &
 docker-compose up -d  && 
 
 
-apt install software-properties-common jq -y && \
+apt-get update && \
+apt-add-repository --yes --update ppa:ansible/ansible  && \
+apt install software-properties-common jq ansible sshpass -y && \
 add-apt-repository -y ppa:deadsnakes/ppa && \
 apt install -y python3.10 python3.10-distutils && \
 curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
 python3.10 -m pip install conjur==7.1.0 &
+
+
+export ANSIBLE_HOST_KEY_CHECKING=False 

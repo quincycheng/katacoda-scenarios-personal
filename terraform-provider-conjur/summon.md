@@ -1,17 +1,11 @@
 
 
 ### Install Summon
-Installing Summon is simple.  Simply download 2 files and summon is ready to go.
+Installing `summon` is simple.  Simply install 2 files and summon is ready to go.
 
 ```
-curl -OL https://github.com/cyberark/summon/releases/download/v0.8.4/summon-linux-amd64.tar.gz
-tar zvxf summon-linux-amd64.tar.gz
-cp -f summon /usr/local/bin/
-
-curl -OL https://github.com/cyberark/summon-conjur/releases/download/v0.5.5/summon-conjur-linux-amd64.tar.gz
-tar zvxf summon-conjur-linux-amd64.tar.gz 
-mkdir /usr/local/lib/summon/
-cp -f summon-conjur /usr/local/lib/summon/
+curl -sSL https://raw.githubusercontent.com/cyberark/summon/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/cyberark/summon-conjur/main/install.sh | bash
 ```{{execute}}
 
 ### Install Postgres Client

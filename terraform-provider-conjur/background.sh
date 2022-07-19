@@ -34,12 +34,53 @@ CONJUR_ADMIN=b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 CONJUR_DATA_KEY=B/gTTlJH1mGU3rcYwp+ShzhuGK5kV6JEatXLw51MHc8=
 EOF
 
+
+mkdir -p policy
+
+cat > policy/root.yml << EOF
+- !policy
+  id: terraform
+
+- !policy
+  id: postgres
+EOF
+
+
+cat <<'EOF' > policy/terraform.yml
+- !layer
+
+- !host frontend-01
+
+- !grant
+  role: !layer
+  member: !host frontend-01
+EOF
+
+cat <<'EOF' > policy/postgres.yml
+- &variables
+  - !variable admin-password
+
+- !group secrets-users
+
+- !permit
+  resource: *variables
+  privileges: [ read, execute ]
+  roles: !group secrets-users
+
+# Entitlements
+
+- !grant
+  role: !group secrets-users
+  member: !layer /terraform
+EOF
+
+
 cat <<'EOF' > conjur.tf
 terraform {
  required_providers {
    conjur = {
      source  = "local/cyberark/conjur"
-     version = "0.5.0"
+     version = "0.6.2"
    }
    docker = {
      source  = "kreuzwerker/docker"
@@ -54,16 +95,11 @@ provider "conjur" {
 }
 EOF
 
-cat <<'EOF' > conjur.yml
-- !policy
-  id: postgres
-  body:
-    - !variable admin-password
-EOF
 
-cat <<'EOF' > conjur.yml
+
+cat <<'EOF' > docker.tf
 resource "docker_network" "demo" {
-  name = "demo"
+  name = "root_default"
 }
 EOF
 
@@ -91,7 +127,7 @@ resource "docker_container" "postgres" {
 }
 EOF
 
-cat <<'EOF' > conjur.yml
+cat <<'EOF' > secrets.yml
 PGPASSWORD: !var postgres/admin-password
 EOF
 

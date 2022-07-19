@@ -7,7 +7,9 @@
   "details": {
     "steps": [
       { "title": "Setup Terraform", "text": "terraform.md" },
-      { "title": "Setup Conjur", "text": "conjur.md" },
+      { "title": "Login to Conjur", "text": "conjur.md" },
+      { "title": "Conjur Policy", "text": "policy.md" },
+      { "title": "Protected Resource", "text": "resource.md" },
       { "title": "Setup Provider", "text": "provider.md" },
       { "title": "Apply!", "text": "apply.md" },
       { "title": "Secure client using Summon!", "text": "summon.md" }

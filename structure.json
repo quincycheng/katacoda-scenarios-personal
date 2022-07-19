@@ -3,6 +3,7 @@
         { "path": "conjur-jenkins" },
         { "path": "conjur-ansible-ssh" },
         { "path": "conjur-k8s-secretless" },
+        { "path": "terraform-provider-conjur" },
         { "path": "conjur-playground" },
         { "path": "Work in progress" }
     ]

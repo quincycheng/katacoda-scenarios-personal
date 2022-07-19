@@ -1,0 +1,9 @@
+{
+    "items": [
+        { "path": "conjur-jenkins" },
+        { "path": "conjur-ansible-ssh" },
+        { "path": "conjur-k8s-secretless" },
+        { "path": "conjur-playground" },
+        { "path": "Work in progress" }
+    ]
+}

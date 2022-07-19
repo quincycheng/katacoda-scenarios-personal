@@ -8,10 +8,11 @@ curl -sSL https://raw.githubusercontent.com/cyberark/summon/main/install.sh | ba
 curl -sSL https://raw.githubusercontent.com/cyberark/summon-conjur/main/install.sh | bash
 ```{{execute}}
 
-### Install Postgres Client
-
+### Postgres Client
+Postgres database client has been installed for you. 
+To check the installed version, execute:
 ```
-apt-get -y -f install postgresql-client
+psql --version
 ```{{execute}}
 
 

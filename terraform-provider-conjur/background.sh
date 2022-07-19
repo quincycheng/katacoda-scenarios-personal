@@ -99,7 +99,7 @@ EOF
 
 cat <<'EOF' > docker.tf
 resource "docker_network" "demo" {
-  name = "root_default"
+  name = "demo"
 }
 EOF
 

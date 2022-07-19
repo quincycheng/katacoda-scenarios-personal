@@ -11,12 +11,18 @@ To review the files, execute `cat *.tf`{{execute}}
 
 ### Before
 
-There are 3 running containers in the environment.
+There are 2 running containers in the environment.
 To verify, execute `docker ps`{{execute}}
 
 ### Apply!
 
 ```
+export CONJUR_APPLIANCE_URL="{{TRAFFICE_HOST1_8080}}"
+export CONJUR_ACCOUNT=default
+export CONJUR_AUTHN_LOGIN="host/terraform/frontend-01"
+export CONJUR_AUTHN_API_KEY=$(grep api_key frontend.out | cut -d: -f2 | tr -d ' \r\n' | xargs)
+#export CONJUR_CERT_FILE="/etc/conjur.pem"
+
 terraform init
 terraform apply
 ```{{execute}}
@@ -37,7 +43,7 @@ Do you want to perform these actions?
 You should be able to get a green successful message after execution
 
 ```
-Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
 
 ### After

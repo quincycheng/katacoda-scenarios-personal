@@ -1,0 +1,22 @@
+{
+  "title": "🚧 WIP: Conjur Playground",
+  "description": "Preconfigured Conjur OSS",
+  "difficulty": "Beginner",
+  "time": "15-20 minutes",
+  "icon": "fa-jenkins",
+  "details": {
+    "steps": [
+      {
+        "text": "playground.md",
+        "courseData": "courseBase.sh",
+        "code": "foreground.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

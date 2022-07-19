@@ -1,6 +1,5 @@
 
 The following steps define the connection to Conjur. This is typically a one-time configuration.
-
 In case your Jenkins session has been time-out, Jenkins user name is `admin`{{copy}} and password is `344827fbdbfb40d5aac067c7a07b9230`{{copy}}
 
 1. Navigate to Manage Jenkins > Manage Credentials > (global) > Add Credentials, the [Global credentials (unrestricted)]({{TRAFFIC_HOST1_8081}}/credentials/store/system/domain/_/newCredentials) page should be shown

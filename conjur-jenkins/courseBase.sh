@@ -88,7 +88,9 @@ CONJUR_ADMIN=b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 CONJUR_DATA_KEY=B/gTTlJH1mGU3rcYwp+ShzhuGK5kV6JEatXLw51MHc8=
 EOF
 
-mkdir conf
+mkdir -p conf
+mkdir -p conf/tls
+
 cat <<'EOF' > conf/default.conf
 server {
     listen              443 ssl;
@@ -104,7 +106,6 @@ server {
 }
 EOF
 
-mkdir conf/tls
 cat <<'EOF' > conf/tls/tls.conf
 [req]
 default_bits = 2048

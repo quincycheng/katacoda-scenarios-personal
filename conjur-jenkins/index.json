@@ -59,8 +59,12 @@
         "text": "conjur-plugin.md"
       },
       {
-        "title": "Configure Jenkins-Conjur connection",
+        "title": "Conjur API Key in Jenkins",
         "text": "conjur-conn.md"
+      },
+      {
+        "title": "Configure Jenkins-Conjur connection",
+        "text": "conjur-config.md"
       },
       {
         "title": "Define secrets in Jenkins",

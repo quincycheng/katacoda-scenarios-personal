@@ -1,7 +1,7 @@
 #!/bin/bash
 set +H
 
-clear && date && \
+clear && \
 printf "Preparing environment, it will take 2-5mins...\n- Getting container related files..." && \
 sleep 1s && \
 timeout 30s bash -c 'while ! [ -f /root/docker-compose.yml ];do printf ".";sleep 2s;done'  && \
@@ -22,6 +22,3 @@ timeout 30s bash -c 'while [ "$(docker ps -a|grep jenkins)" = "" ];do printf "."
 printf "✅\n- Setting up Conjur..." && \
 timeout 30s bash -c 'while [ "$(docker ps -a|grep conjur_server)" = "" ];do printf ".";sleep 2s;done'   && \
 echo -e "✅\n- Ready! 😀"
-
-date
-

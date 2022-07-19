@@ -24,4 +24,7 @@ Next, the playbook for the 2 hosts
 
 ### Let's try the sample playbook
 
-`ansible-playbook -i insecure-playbook/inventory insecure-playbook/insecure-playbook.yml`{{execute}}
+```
+export ANSIBLE_HOST_KEY_CHECKING=False
+ansible-playbook -i insecure-playbook/inventory insecure-playbook/insecure-playbook.yml
+```{{execute}}

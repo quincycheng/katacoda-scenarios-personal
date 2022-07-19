@@ -12,10 +12,14 @@ cat secure-playbook/inventory
 ```{{execute}}
 
 Let's review the sample playbook, which connects to 
-`cat secure-playbook/secure-playbook.yml`{{execute}}
+```
+cat secure-playbook/secure-playbook.yml
+```{{execute}}
 
 To execute the playbook:
-`ansible-playbook -i secure-playbook/inventory secure-playbook/secure-playbook.yml`{{execute}}
+```
+ansible-playbook -i secure-playbook/inventory secure-playbook/secure-playbook.yml
+```{{execute}}
 
 The result should contains the following message:
 ```

@@ -28,10 +28,11 @@ To learn more, visit [CyberArk Conjur Doc](https://docs.conjur.org/Latest/en/Con
 
 5. Scroll down to "Conjur Appliance"
 
-6. Fill in the form
+6. Fill in the form, please note that we are connecting to nginx proxy for HTTPS connectivity and its certificate is saved as `ConjurSSL` credential in Jenkins
 
 - Account: `default`{{copy}}
-- Appliance URL: `http://172.30.1.2:8080`{{copy}}
+- Appliance URL: `https://proxy`{{copy}}
 - Conjur Authn Credential: `host/jenkins-frontend/frontend-01/*****`{{copy}}
+- Conjur SSL Certificate: `ConjurSSL`{{copy}}
 
 7. Click `Save`

@@ -12,6 +12,11 @@
         "code": "foreground.sh"
       }
     ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "background.sh",
+      "code": "foreground.sh"
+    },
     "finish": {
       "text": "finish.md"
     }

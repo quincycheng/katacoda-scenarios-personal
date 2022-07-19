@@ -7,6 +7,10 @@
   "details": {
     "steps": [
       {
+        "title": "Why Conjur+Jenkins?",
+        "text": "Why.md"
+      },
+      {
         "title": "Prerequisites",
         "text": "prerequisites.md"
       },

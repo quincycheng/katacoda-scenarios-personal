@@ -264,7 +264,7 @@ cat <<EOF > grant_conjur_id.yml
   roles:
     - role: cyberark.conjur-host-identity
       conjur_appliance_url: "{{lookup('env', 'CONJUR_URL')}}"
-      conjur_account: "demo"
+      conjur_account: "default"
       conjur_host_factory_token: "{{lookup('env', 'HFTOKEN')}}"
       conjur_host_name: "{{inventory_hostname}}"
       conjur_ssl_certificate:  "{{lookup('file', 'conjur.pem')}}"

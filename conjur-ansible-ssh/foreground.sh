@@ -10,7 +10,7 @@ timeout 120s bash -c 'while [ "$(docker ps -a|grep sshd1)" = "" ];do printf ".";
 printf "✅\n- Target Host 2..." && \
 timeout 30s bash -c 'while [ "$(docker ps -a|grep sshd2)" = "" ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing jq..." && \
-timeout 60s bash -c 'while [ ! $(command -v jq) ];do printf ".";sleep 2s;done'   && \
+timeout 120s bash -c 'while [ ! $(command -v jq) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing Ansible Core..." && \
 timeout 60s bash -c 'while [ ! $(command -v ansible) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing Conjur CLI..." && \

@@ -1,6 +1,6 @@
 #!/bin/bash
 set +H
-clear && printf "Preparing environment...\n- Typical (insecure) Ansible Playbook..." && \
+clear && date && printf "Preparing environment...\n- Typical (insecure) Ansible Playbook..." && \
 sleep 1s && \
 timeout 30s bash -c 'while ! [ -f /root/insecure-playbook/insecure-playbook.yml ];do printf ".";sleep 2s;done'  && \
 printf "✅\n- Secure Ansible Playbook..." && \
@@ -9,8 +9,6 @@ printf "✅\n- Target Host 1..." && \
 timeout 120s bash -c 'while [ "$(docker ps -a|grep sshd1)" = "" ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Target Host 2..." && \
 timeout 30s bash -c 'while [ "$(docker ps -a|grep sshd2)" = "" ];do printf ".";sleep 2s;done'   && \
-printf "✅\n- Installing Python PIP..." && \
-timeout 60s bash -c 'while [ ! $(command -v pip) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing jq..." && \
 timeout 60s bash -c 'while [ ! $(command -v jq) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Installing Ansible Core..." && \
@@ -21,7 +19,6 @@ printf "✅\n- Downloading Conjur policy files..." && \
 timeout 120s bash -c 'while ! [ -f /root/db.yml ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Setting up Conjur..." && \
 timeout 30s bash -c 'while [ "$(docker ps -a|grep conjur_server)" = "" ];do printf ".";sleep 2s;done'   && \
-
-
-
 echo -e "✅\n- Ready! 😀"
+
+date

@@ -5,13 +5,6 @@ Once ready, you should be able to access various systems on this environment by 
 
 - [Conjur (port 8080)]({{TRAFFIC_HOST1_8080}})
 
-They are all run as containers.   
-To verify, execute:
-```
-docker ps
-```{{execute}}
-
-
 ### Conjur CLI
 
 Conjur CLI has been installed for you.
@@ -44,3 +37,7 @@ Let's login to Conjur, and admin password of the pre-configured environment is `
 ```
 conjur login -i admin -p b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 ```{{execute}}
+
+### Have fun!
+
+Check out the [Conjur doc](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Developer/CLI/cli-commands.htm?tocpath=Developer%7CConjur%20CLI%7CConjur%20CLI%20Command%20Reference%7C_____0) for more details

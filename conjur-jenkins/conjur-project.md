@@ -1,4 +1,3 @@
-Let's test the setup by copying & updating the project
 
 1. To create a new project, go to Demo & click ["New Item"]({{TRAFFIC_HOST1_8081}}/job/Demo/newJob)
 
@@ -25,3 +24,5 @@ Let's test the setup by copying & updating the project
 7. Click `Save`
 
 8. Let's verify the setup by clicking ["Build Now"]({{TRAFFIC_HOST1_8081}}/job/Demo/job/Secure_Freestyle_Project/build?delay=0sec)
+
+9. Now you have a freestyle project with secrets secured by CyberArk Conjur! 🎉🎉🎉

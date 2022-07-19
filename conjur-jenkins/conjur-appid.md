@@ -30,10 +30,8 @@ conjur policy load -b root -f root.yml
 
 3. Review the `jenkins-frontend` policy by executing:
 ```
-cat frontend.yml
+cat jenkins-frontend.yml
 ```{{execute}}
-
-It declares the layer and the host.
 
 ```
 - !layer

@@ -164,6 +164,8 @@ DNS.2 = proxy
 IP.1 = 127.0.0.1
 EOF
 
+echo '172.30.1.2 proxy' >> /etc/hosts
+
 docker-compose pull conjur &
 docker-compose pull database &
 

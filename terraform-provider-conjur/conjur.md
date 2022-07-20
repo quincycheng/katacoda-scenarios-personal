@@ -3,7 +3,8 @@
 
 Once ready, you should be able to access various systems on this environment by accessing the following links:
 
-- [Conjur (port 8080)]({{TRAFFIC_HOST1_8080}})
+- External: [Conjur (External access to 8080)]({{TRAFFIC_HOST1_8080}})
+- Internal: https://proxy:8443
 
 ### Conjur CLI
 

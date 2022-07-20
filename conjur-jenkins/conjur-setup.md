@@ -1,5 +1,8 @@
 
 Conjur has been started.
+- External: [Conjur (External access to 8080)]({{TRAFFIC_HOST1_8080}})
+- Internal: https://proxy:8443
+
 Let's make sure it's up & running.
 
 ## Verify the system is up & running

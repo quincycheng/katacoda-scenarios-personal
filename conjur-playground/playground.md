@@ -3,7 +3,8 @@
 
 Once ready, you should be able to access various systems on this environment by accessing the following links:
 
-- [Conjur (port 8080)]({{TRAFFIC_HOST1_8080}})
+- External: [Conjur (External access to 8080)]({{TRAFFIC_HOST1_8080}})
+- Internal: https://proxy:8443
 
 ### Conjur CLI
 
@@ -19,7 +20,7 @@ conjur --version
 You only to initialize Conjur CLI once.
 
 ```
-conjur init  -a default -u {{TRAFFIC_HOST1_8080}} 
+conjur init  -a default -u https://proxy:8443
 ```{{execute}}
 
 If `Trust this certificate? yes/no (Default: no):` is prompted, answer:

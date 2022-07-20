@@ -8,12 +8,8 @@ cat policy/postgres.yml
 It declares the variables & related privileges, plus entitlements
 
 ```
-#Declare the secrets required by the application
-
 - &variables
   - !variable admin-password
-
-# Define a group and assign privileges for fetching the secrets
 
 - !group secrets-users
 
@@ -22,24 +18,37 @@ It declares the variables & related privileges, plus entitlements
   privileges: [ read, execute ]
   roles: !group secrets-users
 
-# Entitlements that add the Jenkins layer of hosts to the group  
+- !layer
+
+- !host client-01
+
+- !grant
+  role: !layer
+  member: !host client-01
+
+# Entitlements
 
 - !grant
   role: !group secrets-users
   member: !layer /terraform
+
+- !grant
+  role: !group secrets-users
+  member: !layer
 ```
 
 This policy does the following: 
 - Declares the variables to be retrieved by Terraform.
 - Declares the groups that have read & execute privileges on the variables.
-- Adds the Terraform layer to the group. The path name of the layer is relative to root.
-
-Change the variable names, the group name, and the layer name as appropriate.
+- Declares a layer that inherits the name of the policy under which it is loaded. In our example, the layer name will become `postres`.
+- Declares a host named `client-01`
+- Add the host into the layer. A layer may have more than one host.
+- Add `postres` & `terraform` layer to the group
 
 2. Load the policy into Conjur under the `postgres` policy branch you declared previously: 
 
 ```
-conjur policy load -b postgres -f policy/postgres.yml
+conjur policy load -b postgres -f policy/postgres.yml | tee postgres.out
 ```{{execute}}
 
 ### Add variable

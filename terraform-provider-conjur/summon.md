@@ -15,13 +15,24 @@ To check the installed version, execute:
 psql --version
 ```{{execute}}
 
-
 ### Review secrets.yml
 To inject the password to Postgres client using Summon, `secrets.yml` file is needed.   
 
 To review, execute `cat secrets.yml`{{execute}}
 
 `PGPASSWORD: !var postgres/admin-password`
+
+### Client Application Identity
+
+We can configure the client application identity using environment variables
+
+```
+export CONJUR_AUTHN_LOGIN="host/postgres/client-01"
+export CONJUR_AUTHN_API_KEY=$(grep api_key postgres.out | cut -d: -f2 | tr -d ' \r\n' | xargs)
+export CONJUR_APPLIANCE_URL=https://proxy:8443
+export CONJUR_ACCOUNT=default
+export CONJUR_SSL_CERTIFICATE="$(openssl s_client -showcerts -connect proxy:8443 < /dev/null 2> /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p')"
+```
 
 ### Connect to Postgres DB using Summon
 

@@ -48,6 +48,9 @@ EOF
 #################
 #  SSL
 
+echo '172.30.1.2 proxy' >> /etc/hosts
+
+
 mkdir -p conf
 mkdir -p conf/tls
 
@@ -166,6 +169,8 @@ DNS.2 = proxy
 IP.1 = 127.0.0.1
 EOF
 
+cp conf/tls/nginx.crt /etc/conjur.pem
+
 #################
 #  Conjur Policy
 
@@ -204,7 +209,7 @@ cat <<'EOF' > policy/postgres.yml
 
 - !layer
 
-- !host frontend-01
+- !host client-01
 
 - !grant
   role: !layer
@@ -244,7 +249,7 @@ terraform {
 }
 
 provider "conjur" {
-  appliance_url = "https://proxy"
+  appliance_url = "https://proxy:8443"
   account = "default"
 }
 EOF

@@ -32,7 +32,7 @@ export CONJUR_AUTHN_API_KEY=$(grep api_key postgres.out | cut -d: -f2 | tr -d ' 
 export CONJUR_APPLIANCE_URL=https://proxy:8443
 export CONJUR_ACCOUNT=default
 export CONJUR_SSL_CERTIFICATE="$(openssl s_client -showcerts -connect proxy:8443 < /dev/null 2> /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p')"
-```
+```{{execute}}
 
 ### Connect to Postgres DB using Summon
 

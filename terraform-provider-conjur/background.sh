@@ -286,10 +286,10 @@ resource "docker_container" "postgres" {
 }
 EOF
 
-
-
 docker-compose pull conjur &
 docker-compose pull database &
+
+docker pull postgres:9.3 &
 
 apt install -y jq python3-pip postgresql-client && pip install conjur & 
 

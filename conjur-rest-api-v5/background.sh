@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo '172.30.1.2 proxy' >> /etc/hosts
+
 cat <<'EOF' > showSettings.sh
 #!/bin/bash
 refresh_token=$(curl -s --user admin:$conjur_admin ${conjur_url}/authn/default/login)

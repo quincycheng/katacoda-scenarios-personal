@@ -2,6 +2,9 @@
 
 set +H
 
+echo '172.30.1.2 proxy' >> /etc/hosts
+
+
 cat <<'EOF' > docker-compose.yml
 version: '3'
 services:

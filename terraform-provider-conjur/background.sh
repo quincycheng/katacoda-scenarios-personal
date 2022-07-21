@@ -299,3 +299,4 @@ mv terraform /usr/local/bin/ &
 
 docker-compose up -d
 
+echo '172.30.1.2 proxy' >> /etc/hosts

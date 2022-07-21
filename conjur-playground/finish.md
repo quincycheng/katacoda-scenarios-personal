@@ -1,1 +1,1 @@
-Be sure to check out other scenarios by clicking `Scenarios` button below
+Check out other tutorials by clicking `SCENARIOS` button below

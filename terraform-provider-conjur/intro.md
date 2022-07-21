@@ -1,4 +1,11 @@
 In this course, you will learn how to use **Terraform provider for Conjur** to retreive secrets from Conjur Open Source to Terraform.
 
-We will make use Terraform to spin up a postgres database container.
-A random password will be generated and stored in Conjur, and it will be retreived by the provider and inject to the the new postgres container as an environment variable (in this example, it will be the admin password)
+![image](https://user-images.githubusercontent.com/4685314/180112052-84af063f-ae46-4e94-b48a-61676c691ed0.png)
+
+
+First, we will make use Terraform to spin up a postgres database container.
+A random password for the database will be generated, and it will be secured by Conjur
+
+Next, in order for the database client to connect to the newly provisioned database, CyberArk summon will be used for secret injection.
+The random password from Conjur will be retreived by the **Terraform provider for Conjur**
+It will be then injected to the the new postgres container as an environment variable for authentication.

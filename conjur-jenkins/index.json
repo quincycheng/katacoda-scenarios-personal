@@ -15,10 +15,6 @@
         "text": "prerequisites.md"
       },
       {
-        "title": "Log in to Jenkins",
-        "text": "jenkins-login.md"
-      },
-      {
         "title": "Folder",
         "text": "jenkins-demo.md"
       },

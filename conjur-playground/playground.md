@@ -41,7 +41,7 @@ conjur login -i admin -p b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 
 ### Bonus: Jenkins
 
-1. Browse the page: {{TRAFFIC_HOST1_8081}}
+Link to Jenkins: {{TRAFFIC_HOST1_8081}}
 
 ```
 The page doesn't load successfully? 
@@ -49,8 +49,10 @@ No worries, it's being started.
 Please click the above link again in 1 or 2 minutes
 ```
 
-2. Login as `admin`{{copy}} with password `344827fbdbfb40d5aac067c7a07b9230`{{copy}}
-
+Password to unlock Jenkins
+```
+docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```{{execute}}
 
 ### Have fun!
 

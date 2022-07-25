@@ -193,6 +193,7 @@ apt install -y jq python3-pip && pip install conjur &
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \
 mv katacoda-env-conjur-jenkins/jenkins_home . && \
 rm -rf katacoda-env-conjur-jenkins && \
+touch .clone_completed && \
 docker-compose up -d
 
 

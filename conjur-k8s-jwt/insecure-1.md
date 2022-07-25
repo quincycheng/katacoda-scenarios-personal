@@ -1,12 +1,12 @@
 
-Let's deploy an app.   
+TODO   
 
-## Database
+## Target Resource
 
 Let's setup a database for the application
 
 ```
-kubectl apply -f db/db.yml
+kubectl apply -f target/deployment.yml
 ```{{execute}}
 
 

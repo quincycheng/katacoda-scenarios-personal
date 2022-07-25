@@ -12,7 +12,7 @@
       { "title": "Steps for Security Admin", "text": "sa-1.md" },
       { "title": "Setup Conjur in Kubernetes", "text": "sa-2.md" },
       { "title": "Prepare Conjur Client", "text": "sa-3.md" },
-      { "title": "Enable Authenticator", "text": "sa-4.md" },
+      { "title": "Enable Authenticator", "text": "sa-4.md" }
     ],
     "intro": {
       "text": "intro.md",

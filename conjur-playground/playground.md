@@ -39,6 +39,19 @@ Let's login to Conjur, and admin password of the pre-configured environment is `
 conjur login -i admin -p b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 ```{{execute}}
 
+### Bonus: Jenkins
+
+1. Browse the page: {{TRAFFIC_HOST1_8081}}
+
+```
+The page doesn't load successfully? 
+No worries, it's being started.  
+Please click the above link again in 1 or 2 minutes
+```
+
+2. Login as `admin`{{copy}} with password `344827fbdbfb40d5aac067c7a07b9230`{{copy}}
+
+
 ### Have fun!
 
 Check out the [Conjur doc](https://docs.cyberark.com/Product-Doc/OnlineHelp/AAM-DAP/Latest/en/Content/Developer/CLI/cli-commands.htm?tocpath=Developer%7CConjur%20CLI%7CConjur%20CLI%20Command%20Reference%7C_____0) for more details

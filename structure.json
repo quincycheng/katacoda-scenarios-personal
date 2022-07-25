@@ -5,7 +5,7 @@
         { "path": "terraform-provider-conjur" },
         { "path": "conjur-k8s-secretless" },
         { "path": "conjur-playground" , "title": "🛝 Conjur Playground"},
-        { "path": "cem-jenkins" ,"title": "☁️Cloud Entitlements Manager+Jenkins"},
-        { "path": "Work in progress" ,"title": "🚧 Work in progress"}
+        { "path": "cem-jenkins" ,"title": "☁️ Cloud Entitlements Manager+Jenkins"},
+        { "path": "Work in progress" ,"title": "🚧 Work in progress\nUse it at your own risk"}
     ]
 }

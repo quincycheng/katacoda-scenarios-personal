@@ -5,7 +5,4 @@
 2. Click on it and fill in your CEM organization name & API key
 3. Click `Proceed`
    
-```
-Please Note: 
-You can update the pipeline or Jenkins settings to set `CEM_ORG` & `CEM_APIKEY` environment variables to avoid this prompt
-```
+Tips: You can update the pipeline or Jenkins settings to set `CEM_ORG` & `CEM_APIKEY` environment variables to avoid this prompt

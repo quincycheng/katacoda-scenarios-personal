@@ -4,7 +4,7 @@ In case your Jenkins session has been time-out, Jenkins user name is `admin`{{co
 
 ### Add Conjur API Key to Jenkins
 
-1. Navigate to Manage Jenkins > Manage Credentials > (global) > Add Credentials, the [Global credentials (unrestricted)]({{TRAFFIC_HOST1_8081}}/credentials/store/system/domain/_/newCredentials) page should be shown
+1. Navigate to Manage `Jenkins` > `Manage Credentials` > `(global)` > `Add Credentials`, the [Global credentials (unrestricted)]({{TRAFFIC_HOST1_8081}}/credentials/store/system/domain/_/newCredentials) page should be shown
 
 2. On the form that appears, configure the login credentials for the Jenkins host to log into Conjur.
 

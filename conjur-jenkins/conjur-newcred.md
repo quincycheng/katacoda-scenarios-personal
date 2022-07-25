@@ -1,6 +1,6 @@
 
 
-Visiti Jenkins > Demo > Credentials > Folder > Global credentials (unrestricted) > [Add Credentials]({{TRAFFIC_HOST1_8081}}/job/Demo/credentials/store/folder/domain/_/newCredentials) to create a new credential
+ Add a new secret for the pipeline by navigating to Manage `Jenkins` > `Manage Credentials` > `(global)` > `Add Credentials`, the [Global credentials (unrestricted)]({{TRAFFIC_HOST1_8081}}/credentials/store/system/domain/_/newCredentials) page should be shown
 
 -  Kind: Conjur Secret Credentials
 -  Variable Path: `jenkins-app/web_password`{{copy}}

@@ -4,8 +4,8 @@
         { "path": "conjur-ansible-ssh" },
         { "path": "terraform-provider-conjur" },
         { "path": "conjur-k8s-secretless" },
-        { "path": "conjur-playground" },
-        { "path": "cem-jenkins" ,"title": "*CEM+* Jenkins"},
+        { "path": "conjur-playground" , "🛝 Conjur Playground"},
+        { "path": "cem-jenkins" ,"title": "☁️Cloud Entitlements Manager+Jenkins"},
         { "path": "Work in progress" ,"title": "🚧 Work in progress"}
     ]
 }

@@ -189,10 +189,12 @@ docker-compose pull proxy &
 
 apt install -y jq python3-pip && pip install conjur & 
 
-# Get jenkins_home
+# Get Jenkins files & start Jenkins
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \
 mv katacoda-env-conjur-jenkins/jenkins_home . && \
-rm -rf katacoda-env-conjur-jenkins
+rm -rf katacoda-env-conjur-jenkins && \
+docker-compose up -d
+
 
 cat > root.yml << EOF
 - !policy
@@ -248,5 +250,4 @@ cat > jenkins-app.entitled.yml << EOF
   member: !layer /jenkins-frontend
 EOF
 
-docker-compose up -d
 

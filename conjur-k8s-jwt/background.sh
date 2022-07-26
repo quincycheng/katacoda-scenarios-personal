@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-git clone https://github.com/quincycheng/killercoda-env-conjur-jwt-k8s.git > /dev/null 2>&1 && \
+git clone https://github.com/quincycheng/killercoda-env-conjur-jwt-k8s.git  && \
 mv killercoda-env-conjur-jwt-k8s/* . && \
 rm -rf killercoda-env-conjur-jwt-k8s/
 

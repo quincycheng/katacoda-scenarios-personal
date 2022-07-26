@@ -14,14 +14,13 @@ Specifically, we will:
 **As the security admin:**
 
 1. Setup Conjur in Kubernetes
-2. Prepare Conjur Client
-3. Enable Authenticator
-4. Enrolling App
-5. Config Secretless Broker Sidecar
+2. Enable Authenticator
+3. Enrolling App
+4. Config Secretless Broker Sidecar
 
 **As the application developer:**
-- Deploy the application and the Secretless sidecar
-
-This course is the only prerequisite you need to run through this tutorial!
+We will deploy the application in 2 different deployment optnions:
+1. Deploy the application and inject secrets on start
+2. Deploy the application and inject secrets on start
 
 Let's get started!

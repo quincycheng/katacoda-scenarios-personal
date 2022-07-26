@@ -6,17 +6,30 @@ TODO
 Let's setup a database for the application
 
 ```
-kubectl apply -f target/deployment.yml
+kubectl apply -f target/k8s/deployment.yaml
 ```{{execute}}
 
 
 ## App
 
-We will make use of the pet store demo app from CyberArk (https://github.com/conjurdemos/pet-store-demo) as an example.
+We have prepared a sample application where it will connect to the target system via HTTP and verify the response status.
+
+To view the source code of the main logic, execute:
+```
+cat apps/original-app/src/main.go 
+```{{execute}}
+
+To build the application, execute:
+
+```
+docker build -t original-app:latest  apps/original-app/src
+docker tag original-app:latest local-registry:5000/original-app:latest
+docker push local-registry:5000/original-app:latest
+```{{execute}}
 
 To deploy, execute:
 ```
-kubectl apply -f insecure/app.yml
+kubectl apply -f apps/original-app/k8s/deployment.yml
 ```{{execute}}
 
 Now the application has been installed.

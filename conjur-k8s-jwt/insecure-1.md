@@ -25,6 +25,7 @@ To build the application, execute:
 docker build -t original-app:latest  apps/original-app/src
 docker tag original-app:latest local-registry:5000/original-app:latest
 docker push local-registry:5000/original-app:latest
+
 ```{{execute}}
 
 To deploy, execute:

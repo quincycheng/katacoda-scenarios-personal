@@ -22,9 +22,9 @@ cat apps/original-app/src/main.go
 To build the application, execute:
 
 ```
-docker build -t original-app:latest  apps/original-app/src
-docker tag original-app:latest local-registry:5000/original-app:latest
-docker push local-registry:5000/original-app:latest
+podman build -t original-app:latest  apps/original-app/src
+podman tag original-app:latest controlplane:5000/original-app:latest
+podman push controlplane:5000/original-app:latest
 
 ```{{execute}}
 

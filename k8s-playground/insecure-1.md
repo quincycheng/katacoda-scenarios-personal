@@ -1,15 +1,4 @@
 
-TODO   
-
-## Target Resource
-
-Let's setup a database for the application
-
-```
-kubectl apply -f target/k8s/deployment.yaml
-```{{execute}}
-
-
 ## App
 
 We have prepared a sample application
@@ -25,7 +14,6 @@ To build the application, execute:
 podman build -t original-app:latest  apps/original-app/src
 podman tag original-app:latest controlplane:5000/original-app:latest
 podman push controlplane:5000/original-app:latest
-
 ```{{execute}}
 
 To deploy, execute:

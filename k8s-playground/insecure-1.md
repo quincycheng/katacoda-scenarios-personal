@@ -3,11 +3,11 @@
 
 ```
 cat /etc/docker/daemon.json
-```
+```{{execute}}
 
 ```
 cat /etc/containers/registries.conf
-```
+```{{execute}}
 
 
 

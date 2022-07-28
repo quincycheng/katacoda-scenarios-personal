@@ -9,8 +9,9 @@ cat /etc/docker/daemon.json
 cat /etc/containers/registries.conf
 ```{{execute}}
 
-
-
+```
+cat /etc/containerd/config.toml
+```{{execute}}
 
 ## App
 
@@ -44,3 +45,9 @@ Let's wait for it to get started.
 
 Wait for `original-app` to have `Running` status.
 Press `Ctrl-C` to stop
+
+## Troubleshooting Local Registry
+```
+export POD_NAME=$(k get pods -n demo -l "app=original-app" -o jsonpath="{.items[0].metadata.name}")
+k describe pod/$POD_NAME -n demo
+ ```{{execute}}

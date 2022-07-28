@@ -20,8 +20,8 @@ EOF
 echo '[[registry]]' >> /etc/containers/registries.conf && \
 echo 'location="controlplane:5000"' >> /etc/containers/registries.conf && \
 echo 'insecure=true' >> /etc/containers/registries.conf  
-jq -S '. |= . + {"insecure-registries":[ "controlplane:5000" ]}' /etc/docker/daemon.json > /etc/docker/daemon.json 
-systemctl restart docker 
+#jq -S '. |= . + {"insecure-registries":[ "controlplane:5000" ]}' /etc/docker/daemon.json > /etc/docker/daemon.json 
+#systemctl restart docker 
 
 docker run -d -p 5000:5000 --restart=always --name registry registry:2 & 
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash &

@@ -8,6 +8,7 @@
         { "path": "cem-jenkins" ,"title": "☁️ Cloud Entitlements Manager + Jenkins"},
         { "path": "k8s-playground" ,"title": "🚧 WIP: K8S Playground"},
         { "path": "conjur-k8s-jwt" ,"title": "🚧 WIP: Conjur K8S JWT"},
+        { "path": "conjur-jenkins-jwt" ,"title": "🚧 WIP: Conjur Jenkins JWT"},
         { "path": "Work in progress" ,"title": "🚧 Work in progress - use it at your own risk"}
     ]
 }

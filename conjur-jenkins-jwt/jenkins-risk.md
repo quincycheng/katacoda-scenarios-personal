@@ -1,5 +1,5 @@
 
-It works well, right?   Jenkins even [conseal the credentials]({{TRAFFIC_HOST1_8081}}/job/Demo/credentials/store/folder/domain/_/credential/theServerAccount/update)
+It works well, right?   Jenkins even [conseal the credentials]({{TRAFFIC_HOST1_8081}}/credentials/store/system/domain/_/credential/theServerAccount/update)
 
 
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/02-jenkins_demo_cred_details.PNG)

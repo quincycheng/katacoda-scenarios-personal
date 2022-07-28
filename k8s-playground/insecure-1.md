@@ -1,17 +1,36 @@
 
 ## System Changes
 
-`/etc/docker/daemon.json`: adding `"insecure-registries":[ "controlplane:5000" ]`
+### /etc/docker/daemon.json
+adding `"insecure-registries":[ "controlplane:5000" ]`
 ```
 cat /etc/docker/daemon.json
 ```{{execute}}
 
-`/etc/docker/daemon.json`: add last 3 lines
+### /etc/docker/daemon.json
+add last 3 lines
+
+```
+[[registry]]
+location="controlplane:5000"
+insecure=true
+```
+
 ```
 cat /etc/containers/registries.conf
 ```{{execute}}
 
-`/etc/docker/daemon.json`: add line 142-147
+### /etc/containerd/config.toml
+add line 142-147
+```
+        [plugins."io.containerd.grpc.v1.cri".registry.mirrors."controlplane:5000"]
+          endpoint = ["http://controlplane:5000"]
+      
+      [plugins."io.containerd.grpc.v1.cri".registry.configs]
+        [plugins."io.containerd.grpc.v1.cri".registry.configs."controlplane:5000".tls]
+          insecure_skip_verify = true
+```
+
 ```
 cat /etc/containerd/config.toml
 ```{{execute}}

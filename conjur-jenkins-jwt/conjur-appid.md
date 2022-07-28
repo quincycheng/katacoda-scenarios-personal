@@ -9,8 +9,8 @@ conjur policy load -b jenkins-app -f jenkins-app.yml
 
 ```
 conjur variable set -i jenkins-app/web_password -v NotSoSecureSecret
-conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v {{TRAFFIC_HOST1_8080}}/jwtauth/conjur-jwk-set
-conjur variable set -i conjur/authn-jwt/jenkins/issuer -v {{TRAFFIC_HOST1_8080}}
+conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v {{TRAFFIC_HOST1_8081}}/jwtauth/conjur-jwk-set
+conjur variable set -i conjur/authn-jwt/jenkins/issuer -v {{TRAFFIC_HOST1_8081}}
 conjur variable set -i conjur/authn-jwt/jenkins/token-app-property -v identity
 conjur variable set -i conjur/authn-jwt/jenkins/audience -v killercoda
 conjur variable set -i conjur/authn-jwt/jenkins/identity-path -v /jenkins/projects
@@ -35,3 +35,25 @@ JWT Token:
     "iat": 1658996879,
     "jti": "ac1ef748f54949588a9c176adac7da60"
 }
+
+
+
+
+add-apt-repository -y ppa:deadsnakes/ppa && \
+apt install -y python3.10 python3.10-distutils && \
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
+python3.10 -m pip install conjur==7.1.0
+
+
+conjur list  --privilege 'authenticate' --permitted-roles 'webservice:conjur/authn-jwt/jenkins'
+
+conjur list --k group --privilege 'authenticate' --permitted-roles 'webservice:conjur/authn-jwt/jenkins'
+[
+    "default:user:admin",
+    "default:group:conjur/authn-jwt/jenkins/consumers",
+    "default:host:jenkins/projects/Secure_Freestyle_Project",
+    "default:policy:jenkins",
+    "default:policy:jenkins/projects",
+    "default:group:jenkins/projects",
+    "default:policy:conjur/authn-jwt/jenkins"
+]

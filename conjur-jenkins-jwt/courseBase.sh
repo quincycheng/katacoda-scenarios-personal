@@ -284,6 +284,13 @@ cat > grant-jwt-jenkins.yml << EOF
 - !grant
   role: !group conjur/authn-jwt/jenkins/consumers
   member: !group jenkins/projects
+
+   
+# Permit the consumers group to authenticate to the authn-jwt/jenkins web service
+#- !permit
+#  role: !group conjur/authn-jwt/jenkins/consumers
+#  privilege: [ read, authenticate ]
+#  resource: !webservice conjur/authn-jwt/jenkins
 EOF
 
 cat > root.yml << EOF
@@ -308,7 +315,7 @@ cat > jenkins-projects.yml << EOF
         editable: "true"
 
     - !host
-      id: Secure_Freestyle_Project
+      id: killercoda-Secure_Freestyle_Project
       annotations:
         description: Freestyle project in Jenkins named Secure_Freestyle_Project in the Demo folder.
         jenkins: true
@@ -321,10 +328,8 @@ cat > jenkins-projects.yml << EOF
     - !grant
       role: !group
       members:
-        - !host Secure_Freestyle_Project
+        - !host killercoda-Secure_Freestyle_Project
 EOF
-
-
 
 cat > jenkins-app.yml << EOF
 - &variables

@@ -1,14 +1,17 @@
 
 ## System Changes
 
+`/etc/docker/daemon.json`: adding `"insecure-registries":[ "controlplane:5000" ]`
 ```
 cat /etc/docker/daemon.json
 ```{{execute}}
 
+`/etc/docker/daemon.json`: add last 3 lines
 ```
 cat /etc/containers/registries.conf
 ```{{execute}}
 
+`/etc/docker/daemon.json`: add line 142-147
 ```
 cat /etc/containerd/config.toml
 ```{{execute}}

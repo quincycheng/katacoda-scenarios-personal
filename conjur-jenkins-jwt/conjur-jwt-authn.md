@@ -16,7 +16,6 @@ conjur policy load -b root -f authn-jwt-jenkins.yml
 
 To set the configuration values of `authn-jwt/jenkins`, execute:
 ```
-conjur variable set -i jenkins-app/web_password -v NotSoSecureSecret
 conjur variable set -i conjur/authn-jwt/jenkins/jwks-uri -v {{TRAFFIC_HOST1_8081}}/jwtauth/conjur-jwk-set
 conjur variable set -i conjur/authn-jwt/jenkins/issuer -v {{TRAFFIC_HOST1_8081}}
 conjur variable set -i conjur/authn-jwt/jenkins/token-app-property -v identity

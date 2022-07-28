@@ -14,7 +14,7 @@ timeout 60s bash -c 'while [ ! $(command -v jq) ];do printf ".";sleep 2s;done'  
 printf "✅\n- Installing Conjur CLI..." && \
 timeout 60s bash -c 'while [ ! $(command -v conjur) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Downloading Conjur policy files..." && \
-timeout 120s bash -c 'while ! [ -f /root/jenkins-app.entitled.yml ];do printf ".";sleep 2s;done'   && \
+timeout 120s bash -c 'while ! [ -f /root/jenkins-app.yml ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Setting up target web application..." && \
 timeout 30s bash -c 'while [ "$(docker ps -a|grep http-auth-server)" = "" ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Setting up Jenkins..." && \

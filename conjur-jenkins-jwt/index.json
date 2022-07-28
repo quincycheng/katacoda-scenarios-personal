@@ -39,8 +39,16 @@
         "text": "conjur-cli.md"
       },
       {
-        "title": "App Identity",
-        "text": "conjur-appid.md"
+        "title": "Conjur Root Policy",
+        "text": "conjur-jwt-root.md"
+      },
+      {
+        "title": "JWT Authentication",
+        "text": "conjur-jwt-authn.md"
+      },
+      {
+        "title": "Grant Permission",
+        "text": "conjur-jwt-grant.md"
       },
       {
         "title": "Protected Resource",

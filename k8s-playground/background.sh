@@ -1,11 +1,16 @@
 #!/bin/bash 
 
+# Git Clone
+git clone https://github.com/quincycheng/killercoda-env-conjur-jwt-k8s.git  && \
+mv killercoda-env-conjur-jwt-k8s/* . && \
+rm -rf killercoda-env-conjur-jwt-k8s/ && \
+touch .clone_completed &
+
 # App
 cat <<'EOF' > Dockerfile
 FROM bash
 CMD ["ping", "killercoda.com"]
 EOF
-touch .clone_completed
 
 # Dictionary & Conjur
 apt install -y wamerican && apt install -y python3-pip && pip3 install conjur &

@@ -194,46 +194,139 @@ git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \
 mv katacoda-env-conjur-jenkins/jenkins_home . && \
 rm -rf katacoda-env-conjur-jenkins && \
 touch .clone_completed && \
-docker-compose up -d
+docker-compose up -d &
 
+
+##################
+
+cat > authn-jwt-jenkins.yml << EOF
+- !policy
+  id: conjur/authn-jwt/jenkins
+  annotations:
+    description: JWT Authenticator web service for Jenkins
+    jenkins: true
+  body:
+    # Create the conjur/authn-jwt/jenkins web service
+    - !webservice
+
+    # Optional: Uncomment any or all of the following variables:
+    # * token-app-propery
+    # * identity-path
+    # * issuer
+    # identity-path is always used together with token-app-property
+    # however, token-app-property can be used without identity-path
+
+    - !variable
+      id: token-app-property
+      annotations:
+        description: JWT Authenticator bases authentication on claims from the JWT. You can base authentication on identifying clams such as the name, the user, and so on. If you can customize the JWT, you can create a custom claim and base authentication on this claim.
+
+    - !variable
+      id: identity-path
+      annotations:
+        description: JWT Authenticator bases authentication on a combination of the claim in the token-app-property and the full path of the application identity (host) in Conjur. This variable is optional, and is used in conjunction with token-app-property. It has no purpose when standing alone.
+
+    - !variable
+      id: issuer
+      annotations:
+        description: JWT Authenticator bases authentication on the JWT issuer. This variable is optional, and is relevant only if there is an iss claim in the JWT. The issuer variable and iss claim values must match.
+    
+    - !variable
+      id: audience
+      annotations:
+        description: JWT Authenticator validates the audience (aud) in the JWT.
+
+    # Mandatory: The JWT Provider URI: You must provide either a provider-uri or jwks-uri
+
+    # - !variable
+    #   id: provider-uri
+    #   annotations:
+    #     description: The JWT provider URI. Relevant only for JWT providers that support the Open ID Connect (OIDC) protocol.
+
+    - !variable
+      id: jwks-uri
+      annotations:
+        description: A JSON Web Key Set (JWKS) URI. If the JWKS vendor provides both a jwks-uri and an equivalent provider-uri, you can use the provider-uri which has an easier interface to work with.
+
+    # Group of hosts that can authenticate using this JWT Authenticator
+    - !group
+      id: consumers
+      annotations:
+        description: Allows authentication through authn-jwt/jenkins web service.
+        editable: "true"
+    
+    # Permit the consumers group to authenticate to the authn-jwt/jenkins web service
+    - !permit
+      role: !group consumers
+      privilege: [ read, authenticate ]
+      resource: !webservice
+
+    # Create a web service for checking authn-jwt/jenkins status
+    - !webservice
+      id: status
+
+    # Group of users who can check the status of authn-jwt/jenkins
+    - !group
+      id: operators
+      annotations:
+        description: Group of users that can check the status of the authn-jwt/jenkins authenticator.
+        editable: "true"
+    
+    # Permit group to check the status of authn-jwt/jenkins
+    - !permit
+      role: !group operators
+      privilege: read
+      resource: !webservice status
+EOF
+
+cat > grant-jwt-jenkins.yml << EOF
+# Grant the jenkins projects group to use the authn-jwt/jenkins authenticator web service
+- !grant
+  role: !group conjur/authn-jwt/jenkins/consumers
+  member: !group jenkins/projects
+EOF
 
 cat > root.yml << EOF
 - !policy
-  id: jenkins-frontend
+  id: jenkins
 
 - !policy
   id: jenkins-app
 EOF
 
+cat > jenkins-projects.yml << EOF
+- !policy
+  id: projects
+  annotations:
+    description: Projects that do not fall under a folder within Jenkins or project-specific host identities for authn-jwt/jenkins authentication.
+    jenkins: true
+  body:
+
+    # Group of hosts that can authenticate using this JWT Authenticator
+    - !group
+      annotations:
+        editable: "true"
+
+    - !host
+      id: Secure_Freestyle_Project
+      annotations:
+        description: Freestyle project in Jenkins named Secure_Freestyle_Project in the Demo folder.
+        jenkins: true
+        project_url: na
+        authn-jwt/jenkins/jenkins_parent_name: Demo
+        authn-jwt/jenkins/jenkins_pronoun: Project
+        authn-jwt/jenkins/identity: killercoda-Secure_Freestyle_Project
+
+    # Grant all hosts in collection above to be members of projects group
+    - !grant
+      role: !group
+      members:
+        - !host Secure_Freestyle_Project
+EOF
+
+
+
 cat > jenkins-app.yml << EOF
-# Declare the secrets which are used to access the database
-- &variables
-  - !variable web_password
-
-# Define a group which will be able to fetch the secrets
-- !group secrets-users
-
-- !permit
-  resource: *variables
-  # "read" privilege allows the client to read metadata.
-  # "execute" privilege allows the client to read the secret data.
-  # These are normally granted together, but they are distinct
-  #   just like read and execute bits on a filesystem.
-  privileges: [ read, execute ]
-  roles: !group secrets-users
-EOF
-
-cat > jenkins-frontend.yml << EOF
-- !layer
-
-- !host frontend-01
-
-- !grant
-  role: !layer
-  member: !host frontend-01
-EOF
-
-cat > jenkins-app.entitled.yml << EOF
 - &variables
   - !variable web_password
 
@@ -248,7 +341,5 @@ cat > jenkins-app.entitled.yml << EOF
 
 - !grant
   role: !group secrets-users
-  member: !layer /jenkins-frontend
+  member: !group /conjur/authn-jwt/jenkins/consumers
 EOF
-
-

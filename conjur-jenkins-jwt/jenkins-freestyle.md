@@ -7,7 +7,7 @@ Now, let's take a look at a typical freestyle project.
 
 2. To view the project details, Click [Configure]({{TRAFFIC_HOST1_8081}}/job/Demo/job/Typical_Freestyle_Project/configure)
 
-3. Click the "Build" tab and click on "Advanced" button to show the details
+3. Click the `Build` tab and click on `Advanced` button to show the details
 
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/02-jenkins_typical_freestyle_config_build.PNG)
 

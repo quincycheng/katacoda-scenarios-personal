@@ -15,5 +15,5 @@ To verify, execute `docker ps`{{execute}}
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/00-docker.PNG)
 
 The response doesn't look the similar?  Don't worry, please give them a moment to start.
-You can retry the above command anytime.
+You can retry the above command multiple times.
 

@@ -1,4 +1,4 @@
 
-This is playground for Killercoda reverse proxy
+This is playground for Jenkins
 
 Have fun!

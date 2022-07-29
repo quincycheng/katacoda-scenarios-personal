@@ -1,5 +1,5 @@
 
-Jenkins can be accessed at ({{TRAFFIC_HOST1_8080}})
+Jenkins can be accessed at {{TRAFFIC_HOST1_8081}}
 
 Initial Admin Password to unlock Jenkins can be found at:
 ```

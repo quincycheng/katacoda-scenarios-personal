@@ -1,12 +1,9 @@
 
-Conjur has been started.
+Conjur has been started and can be accessed by the following URLs:
 - External: [Conjur (External access to 8080)]({{TRAFFIC_HOST1_8080}})
 - Internal: https://proxy:8443
 
 Let's make sure it's up & running.
-
-## Verify the system is up & running
-
 To verify, visit {{TRAFFIC_HOST1_8080}}
 
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/01-conjur.PNG)

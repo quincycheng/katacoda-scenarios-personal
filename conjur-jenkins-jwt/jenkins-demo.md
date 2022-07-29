@@ -1,6 +1,6 @@
 
 
-Let's open Jenkins web interface by [Jenkins (port 8081)]({{TRAFFIC_HOST1_8081}}).   If `502 Bad Gateway` error occurs or it says it is starting, please wait for a moment and retry again.
+Let's open Jenkins web interface by [Jenkins (port 8081)]({{TRAFFIC_HOST1_8081}}).   If `502 Bad Gateway` error occurs or `Please wait while Jenkins is getting ready to work ...` is shown, please wait for a moment and retry again.
 
 ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/01-jenkins_signed_in.PNG)
 

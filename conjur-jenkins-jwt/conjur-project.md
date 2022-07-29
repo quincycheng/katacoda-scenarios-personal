@@ -1,10 +1,9 @@
 
-1. To create a new project, go to `Demo` & click ["New Item"]({{TRAFFIC_HOST1_8081}}/job/Demo/newJob)
+1. To create a new project, go back to `Demo` & click ["New Item"]({{TRAFFIC_HOST1_8081}}/job/Demo/newJob)
 
+2. Fill in the form using values below and click `OK`
    - Enter an item name: `Secure_Freestyle_Project`{{copy}}
    - Type: `Freestyle Project`
-
-2. Click OK
 
 3. Let's auto-populate the secrets. Under `Conjur Appliance`, click `Refresh Credential Store`.   The result text `Refresh` should be shown on the left.
 

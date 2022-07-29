@@ -4,11 +4,11 @@ Let's build the project and make sure it's working
 1. Click on ["Typical Freestyle project"]({{TRAFFIC_HOST1_8081}}/job/Demo/job/Typical_Freestyle_Project/) to go back the project page 
    ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/02-jenkins_typical_freestyle.PNG)
 
-2. Click "Build Now" on the left.   After a moment, a new build history will be shown
+2. Click `Build Now` on the left.   After a moment, a new build history will be shown
 
    ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/02-jenkins_typical_freestyle_build.PNG)
 
-3. Click on the new build number under "build" & choose "Console Output" on the left menu
+3. Click on the new build number under `build` & choose `Console Output` on the left menu
 
    ![theimage](https://github.com/quincycheng/katacoda-scenarios/raw/master/conjur-jenkins/media/02-jenkins_typical_freestyle_console.PNG)
 

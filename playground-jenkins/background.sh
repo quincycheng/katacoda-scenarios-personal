@@ -11,6 +11,7 @@ services:
     container_name: jenkins
     environment:
       JAVA_OPTS: "-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true"
+      xJAVA_OPTS: "-Djenkins.model.Jenkins.crumbIssuerProxyCompatibility=true -Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true -Djenkins.install.runSetupWizard=false"
 EOF
 
 docker-compose up -d

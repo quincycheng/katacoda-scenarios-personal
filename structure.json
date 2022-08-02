@@ -1,15 +1,15 @@
 {
     "items": [
-        { "path": "conjur-jenkins" , "title": "👍 Securing Jenkins Freestyle projects with Conjur"},
+        { "path": "conjur-k8s-jwt" ,"title": "👍 Securing Jenkins Freestyle project using Conjur without Secret Zero"},
+        { "path": "conjur-jenkins" , "title": "👍 Securing Jenkins Freestyle projects with Conjur using API Key"},
         { "path": "conjur-ansible-ssh" , "title": "👍 Securing Ansible Playbook Secrets with Conjur"},
-        { "path": "terraform-provider-conjur" , "title": "👍 Securing Terraform Secrets with Conjur & Summon" },
+        { "path": "terraform-provider-conjur" , "title": "👍 Securing Terraform Secrets with Conjur & Inject Secrets using Summon" },
         { "path": "conjur-k8s-secretless" , "title": "👍 Securing Kuberenetes App Secrets with Conjur Secretless Broker"},
         { "path": "conjur-playground" , "title": "🛝 Conjur Playground"},
         { "path": "cem-jenkins" ,"title": "☁️ Cloud Entitlements Manager + Jenkins"},
         { "path": "playground-reverse-proxy" , "title": "🛝 Reverse Proxy Playground"},
         { "path": "playground-jenkins" , "title": "🛝 Jenkins Playground"},
         { "path": "playground-k8s" ,"title": "🚧 WIP: K8S Playground"},
-        { "path": "conjur-k8s-jwt" ,"title": "🚧 WIP: Conjur K8S JWT"},
         { "path": "conjur-jenkins-jwt" ,"title": "🚧 WIP: Conjur Jenkins JWT"},
         { "path": "Work in progress" ,"title": "🚧 Work in progress - use it at your own risk"}
     ]

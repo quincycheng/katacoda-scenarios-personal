@@ -8,8 +8,9 @@ We will setup access to Conjur
 2. Scroll down to `Conjur Appliance` & fill in:
 
     - Account: `default`{{copy}}
-    - Appliance URL: `{{TRAFFIC_HOST1_8081}}`{{copy}}
-    - Conjur Authn Credential: `host/jenkins-frontend/frontend-01/*****`{{copy}}
+    - Appliance URL: `https://proxy`{{copy}}
+    - Conjur Auth Credential: `- none -`
+    - Conjur SSL Certificate: `CN=proxy, OU=Onyx, O=Cyberark, L=Madison, ST=Wisconsin, C=US`
 
 3. Scroll down to `Conjur JWT Authentication` & fill in:
     - Check `Enable JWT Key Set endpoint?`

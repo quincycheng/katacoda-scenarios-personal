@@ -1,6 +1,6 @@
 {
-  "title": "👍 Securing Jenkins Freestyle project using Conjur",
-  "description": "Learn how to configure Jenkins Conjur Credential plugin to retrieve secrets & secure Jenkins Freestyle projects",
+  "title": "👍 Securing Jenkins Freestyle project using Conjur without Secret Zero",
+  "description": "Learn how to configure Jenkins Conjur Credential plugin with authn-jwt to retrieve secrets without secret zero & secure Jenkins Freestyle projects",
   "difficulty": "Intermediate",
   "time": "15-20 minutes",
   "icon": "fa-jenkins",

@@ -17,4 +17,4 @@ printf "✅\n- Installing Conjur CLI..." && \
 timeout 120s bash -c 'while [ ! $(command -v conjur) ];do printf ".";sleep 2s;done'   && \
 printf "✅\n- Setting up Conjur..." && \
 timeout 30s bash -c 'while [ "$(docker ps -a|grep conjur_server)" = "" ];do printf ".";sleep 2s;done'   && \
-echo -e "✅\n- Ready! 😀"
+echo -e "✅\n- Ready! 😀\n"

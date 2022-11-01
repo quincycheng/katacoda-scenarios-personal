@@ -291,8 +291,9 @@ docker-compose pull database &
 
 docker pull postgres:9.3 &
 
-apt update -y &
-apt install -y jq python3-pip postgresql-client && pip install conjur & 
+#apt update -y &&
+apt install -y jq postgresql-client &
+python3 -m pip install conjur &
 
 wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.3.3_linux_amd64.zip && \
 unzip terraform_1.3.3_linux_amd64.zip && \

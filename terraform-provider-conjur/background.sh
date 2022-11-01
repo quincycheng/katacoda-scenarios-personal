@@ -296,7 +296,7 @@ apt install -y jq postgresql-client &
 
 wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && python3 -m pip install conjur &
 
-wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.3.3_linux_amd64.zip && \
+wget https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_linux_amd64.zip && \
 unzip terraform_1.3.3_linux_amd64.zip && \
 mv terraform /usr/local/bin/ &
 

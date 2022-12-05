@@ -238,8 +238,8 @@ cat <<'EOF' > conjur.tf
 terraform {
  required_providers {
    conjur = {
-     source  = "local/cyberark/conjur"
-     version = "0.6.2"
+     source = "cyberark/conjur"
+     version = "0.6.3"
    }
    docker = {
      source  = "kreuzwerker/docker"

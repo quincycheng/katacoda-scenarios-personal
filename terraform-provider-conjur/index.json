@@ -10,7 +10,6 @@
       { "title": "Login to Conjur", "text": "conjur.md" },
       { "title": "Conjur Policy", "text": "policy.md" },
       { "title": "Protected Resource", "text": "resource.md" },
-      { "title": "Setup Provider", "text": "provider.md" },
       { "title": "Provision!", "text": "apply.md" },
       { "title": "Database client", "text": "cli.md" },
       { "title": "Secure client using Summon!", "text": "summon.md" }

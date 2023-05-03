@@ -302,8 +302,8 @@ wget https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.9/conjur-c
 sudo dpkg -i conjur-cli-go_8.0.9_amd64.deb & 
 
 
-wget https://releases.hashicorp.com/terraform/1.3.6/terraform_1.3.6_linux_amd64.zip && \
-unzip terraform_1.3.6_linux_amd64.zip && \
+wget https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip && \
+unzip terraform_1.4.6_linux_amd64.zip && \
 mv terraform /usr/local/bin/ &
 
 docker-compose up -d

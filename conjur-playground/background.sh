@@ -184,7 +184,7 @@ docker-compose pull conjur &
 docker-compose pull database &
 
 #apt install -y jq python3-pip && pip install conjur & 
-
+apt install -y jq 
 wget  https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.9/conjur-cli-go_8.0.9_amd64.deb && \
 sudo dpkg -i conjur-cli-go_8.0.9_amd64.deb & 
 

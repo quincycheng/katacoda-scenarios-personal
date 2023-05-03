@@ -2,7 +2,8 @@
   "title": "CyberArk Conjur Courses",
   "description": "All course that leverages on CyberArk Conjur",
   "items": [
+    { "path": "../conjur-playground" },
     { "path": "../conjur-rest-api-v5" },
-    { "path": "../conjur-playground" }
+    { "path": "../terraform-provider-conjur" }
   ]
 }

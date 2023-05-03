@@ -1,0 +1,7 @@
+{
+  "title": "CyberArk Cloud Entitlements Manager Labs",
+  "description": "Remove excessive permissions across your cloud footprint by CyberArk CEM",
+  "items": [
+    { "path": "../cem-jenkins" }
+  ]
+}

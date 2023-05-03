@@ -1,6 +1,7 @@
 {
     "items": [
         { "path": "course_conjur" },
+        { "path": "course_cem" },
         { "path": "conjur-jenkins-jwt" ,"title": "👍 Securing Jenkins Freestyle project using Conjur without Secret Zero"},
         { "path": "conjur-jenkins" , "title": "👍 Securing Jenkins Freestyle projects with Conjur using API Key"},
         { "path": "conjur-ansible-ssh" , "title": "👍 Securing Ansible Playbook Secrets with Conjur"},

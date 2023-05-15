@@ -1,6 +1,6 @@
 {
   "title": "CyberArk Conjur Labs",
-  "description": "Manage your secrets with CyberArk Conjur",
+  "description": "Manage your secrets with CyberArk Conjur: https://conjur.org",
   "items": [
     { "path": "../conjur-playground" },
     { "path": "../conjur-rest-api-v5" },

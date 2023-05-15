@@ -6,5 +6,7 @@ rm -rf katacoda-secretless-files/
 
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash &
 
-apt install -y wamerican && apt install -y python3-pip && pip3 install conjur 
+apt install -y wamerican &
 
+wget  https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.9/conjur-cli-go_8.0.9_amd64.deb && \
+sudo dpkg -i conjur-cli-go_8.0.9_amd64.deb & 

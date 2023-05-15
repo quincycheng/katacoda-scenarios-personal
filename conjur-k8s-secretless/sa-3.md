@@ -5,7 +5,7 @@
 You only to initialize Conjur CLI once.
 
 ```
-conjur init  -a default -u https://conjur.demo.com:9443
+conjur init  --self-signed -a default -u https://conjur.demo.com:9443
 ```{{execute}}
 
 If `Trust this certificate? yes/no (Default: no):` is prompted, answer:

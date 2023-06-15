@@ -298,6 +298,8 @@ apt install -y jq postgresql-client &
 
 wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py &
 apt install -y jq &
+
+echo "Installing Conjur CLI..."
 wget https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.10-358/conjur-cli-go_8.0.10_amd64.deb && \
 dpkg -i conjur-cli-go_8.0.10_amd64.deb & 
 

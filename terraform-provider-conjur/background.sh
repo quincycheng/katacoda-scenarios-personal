@@ -301,7 +301,7 @@ apt install -y jq &
 
 echo "Installing Conjur CLI..."
 wget https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.10-358/conjur-cli-go_8.0.10_amd64.deb && \
-dpkg -i conjur-cli-go_8.0.10_amd64.deb & 
+apt install ./conjur-cli-go_8.0.10_amd64.deb & 
 
 
 wget https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip && \

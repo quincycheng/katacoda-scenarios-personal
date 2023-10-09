@@ -1,7 +1,7 @@
 
 Next, let's connect the database using cli
 
-![image](https://user-images.githubusercontent.com/4685314/180113232-9da138e8-ab35-496f-97ba-34368642759e.png)
+![image](https://github.com/quincycheng/killercoda-scenarios/assets/4685314/9e1cca1e-ed48-4ac3-971a-ffe21f8c171c)
 
 Postgres database client has been installed for you. To check the installed version, execute:
 

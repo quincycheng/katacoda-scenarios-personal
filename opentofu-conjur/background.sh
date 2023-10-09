@@ -179,14 +179,14 @@ mkdir -p policy
 
 cat > policy/root.yml << EOF
 - !policy
-  id: terraform
+  id: tofu
 
 - !policy
   id: postgres
 EOF
 
 
-cat <<'EOF' > policy/terraform.yml
+cat <<'EOF' > policy/tofu.yml
 - !layer
 
 - !host frontend-01
@@ -219,7 +219,7 @@ cat <<'EOF' > policy/postgres.yml
 
 - !grant
   role: !group secrets-users
-  member: !layer /terraform
+  member: !layer /tofu
 
 - !grant
   role: !group secrets-users
@@ -231,7 +231,7 @@ PGPASSWORD: !var postgres/admin-password
 EOF
 
 #################
-#  Terraform
+#  OpenTufo
 
 
 cat <<'EOF' > conjur.tf
@@ -304,9 +304,8 @@ wget https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.10/conjur-
 apt -o DPkg::Lock::Timeout=60 install ./conjur-cli-go_8.0.10_amd64.deb & 
 
 
-wget https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip && \
-unzip terraform_1.5.0_linux_amd64.zip && \
-mv terraform /usr/local/bin/ &
+wget https://github.com/opentofu/opentofu/releases/download/v1.6.0-alpha2/tofu_1.6.0-alpha2_amd64.deb && \
+apt -o DPkg::Lock::Timeout=60 install ./tofu_1.6.0-alpha2_amd64.deb & 
 
 docker-compose up -d
 

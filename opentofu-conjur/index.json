@@ -1,0 +1,36 @@
+{
+  "title": "👍 OpenTofu Provider for Conjur & Summon",
+  "description": "Learn how to use OpenTofu Provider for Conjur to setup a PostgresSQL & inject secrets to its client using Summon",
+  "icon":"fa-terraform",
+  "difficulty": "Beginner",
+  "time": "10-20 minutes",
+  "details": {
+    "steps": [
+      { "title": "Setup OpenTofu", "text": "terraform.md" },
+      { "title": "Login to Conjur", "text": "conjur.md" },
+      { "title": "Conjur Policy", "text": "policy.md" },
+      { "title": "Protected Resource", "text": "resource.md" },
+      { "title": "Provision!", "text": "apply.md" },
+      { "title": "Database client", "text": "cli.md" },
+      { "title": "Secure client using Summon!", "text": "summon.md" }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "background.sh",
+      "code": "foreground.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+     "assets": { "host01": [ 
+       {"file": "*", "target": "/home/scrapbook/tutorial"}, 
+       {"file": "*.sh", "target": "/home/scrapbook/tutorial", "chmod":"+x"} 
+     ] }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

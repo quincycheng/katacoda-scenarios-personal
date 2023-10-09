@@ -1,7 +1,7 @@
 
 Let's provision a Postgres database using OpenTofu.
 
-![image](https://user-images.githubusercontent.com/4685314/180112520-8898f505-7d2c-4cc2-a99e-3af1d5ce85c4.png)
+![image](https://github.com/quincycheng/killercoda-scenarios/assets/4685314/204081f0-6a6e-429f-af74-78ac77560337)
 
 OpenTofu has been installed for you.
 

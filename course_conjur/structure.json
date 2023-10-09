@@ -4,6 +4,7 @@
   "items": [
     { "path": "../conjur-playground" },
     { "path": "../conjur-rest-api-v5" },
+    { "path": "../opentofu-conjur" },
     { "path": "../terraform-provider-conjur" },
     { "path": "../conjur-ansible-ssh" },
     { "path": "../conjur-k8s-secretless" }

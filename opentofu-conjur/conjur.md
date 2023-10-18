@@ -38,3 +38,5 @@ Let's login to Conjur, and admin password of the pre-configured environment is `
 ```
 conjur login -i admin -p b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
 ```{{execute}}
+
+If you got an error about `Error: Unable to authenticate with Conjur. Please check your credentials.`, that means the container is still being initalized.   Please wait for a moment and try the above command again.

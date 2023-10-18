@@ -7,7 +7,7 @@
     "details": {
       "steps": [
         { "title": "Download OpenTofu", "text": "download.md" },
-        { "title": "Install OpenTofu", "text": "install.md" },
+        { "title": "Install OpenTofu", "text": "install_tofu.md" },
         { "title": "Before", "text": "before.md" },
         { "title": "OpenTofu Language", "text": "language.md" },
         { "title": "tofu init", "text": "tofu_init.md" },

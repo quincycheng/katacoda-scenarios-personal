@@ -1,6 +1,6 @@
 {
-    "title": "👍 OpenToFu Intro",
-    "description": "Introducing OpenToFu",
+    "title": "👍 OpenTofu Intro",
+    "description": "Introducing OpenTofu",
     "icon":"fa-terraform",
     "difficulty": "Beginner",
     "time": "10-20 minutes",
@@ -8,10 +8,12 @@
       "steps": [
         { "title": "Download OpenTofu", "text": "download.md" },
         { "title": "Install OpenTofu", "text": "install.md" },
+        { "title": "Before", "text": "before.md" },
         { "title": "OpenTofu Language", "text": "language.md" },
         { "title": "tofu init", "text": "tofu_init.md" },
-        { "title": "tofu apply", "text": "tofu_apply.md" }
-    ],
+        { "title": "tofu apply", "text": "tofu_apply.md" },
+        { "title": "After", "text": "after.md" }
+      ],
       "intro": {
         "text": "intro.md"
       },

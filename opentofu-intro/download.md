@@ -1,5 +1,5 @@
 
-OpenToFu can be download from https://github.com/opentofu/opentofu/releases
+OpenTofu can be download from https://github.com/opentofu/opentofu/releases
 
 We will use v1.6.0-alpha2 in this tutorial
 

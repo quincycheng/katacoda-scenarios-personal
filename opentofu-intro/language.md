@@ -1,6 +1,6 @@
 OpenTofu's language is its primary user interface. Configuration files you write in OpenTofu language tell OpenTofu what plugins to install, what infrastructure to create, and what data to fetch. OpenTofu language also lets you define dependencies between resources and create multiple similar resources from a single configuration block.
 
-Below is the example for managing a docker container using OpenToFu.
+Below is the example for managing a docker container using OpenTofu.
 You can also find the code in `demo.tf` file
 
 ```
@@ -31,4 +31,4 @@ resource "docker_container" "nginx" {
 ```
 
 
-You can find more details about OpenToFu language at https://opentofu.org/docs/language/
+You can find more details about OpenTofu language at https://opentofu.org/docs/language/

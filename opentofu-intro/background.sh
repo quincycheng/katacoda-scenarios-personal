@@ -4,7 +4,8 @@
 #  OpenTufo
 
 
-cat <<'EOF' > demoterraform {
+cat <<'EOF' > demo.tf
+terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"

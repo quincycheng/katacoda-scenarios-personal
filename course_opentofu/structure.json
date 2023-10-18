@@ -2,6 +2,7 @@
     "title": "OpenTofu Labs",
     "description": "The open source infrastructure as code tool",
     "items": [
+      { "path": "../opentofu-intro" },
       { "path": "../opentofu-conjur" }
     ]
   }

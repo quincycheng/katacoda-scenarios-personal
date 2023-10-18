@@ -1,0 +1,33 @@
+{
+    "title": "👍 OpenToFu Intro",
+    "description": "Introducing OpenToFu",
+    "icon":"fa-terraform",
+    "difficulty": "Beginner",
+    "time": "10-20 minutes",
+    "details": {
+      "steps": [
+        { "title": "Download OpenTofu", "text": "download.md" },
+        { "title": "Install OpenTofu", "text": "install.md" },
+        { "title": "OpenTofu Language", "text": "language.md" },
+        { "title": "tofu init", "text": "tofu_init.md" },
+        { "title": "tofu apply", "text": "tofu_apply.md" }
+    ],
+      "intro": {
+        "text": "intro.md"
+      },
+      "finish": {
+        "text": "finish.md"
+      },
+       "assets": { "host01": [ 
+         {"file": "*", "target": "/home/scrapbook/tutorial"}, 
+         {"file": "*.sh", "target": "/home/scrapbook/tutorial", "chmod":"+x"} 
+       ] }
+    },
+    "environment": {
+      "uilayout": "terminal"
+    },
+    "backend": {
+      "imageid": "ubuntu"
+    }
+  }
+  

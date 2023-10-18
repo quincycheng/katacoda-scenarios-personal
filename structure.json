@@ -11,6 +11,7 @@
         { "path": "conjur-k8s-secretless" , "title": "👍 Securing Kuberenetes App Secrets with Conjur Secretless Broker"},
         { "path": "cem-jenkins" ,"title": "☁️ Cloud Entitlements Manager + Jenkins"},
         { "path": "conjur-playground" , "title": "🛝 Conjur Playground"},
+        { "path": "opentofu-intro" , "title": "👍 Introducing OpenTofu" },
         { "path": "playground-reverse-proxy" , "title": "🛝 Reverse Proxy Playground"},
         { "path": "playground-jenkins" , "title": "🛝 Jenkins Playground"},
         { "path": "playground-k8s" ,"title": "🚧 Work in progress: K8S Playground"},

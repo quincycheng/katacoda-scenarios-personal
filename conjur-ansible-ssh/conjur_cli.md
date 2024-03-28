@@ -14,7 +14,7 @@ conjur --version
 You only to initialize Conjur CLI once.
 
 ```
-conjur init  -a default -u https://172.30.1.2:8443 --self-signed
+conjur init -a default -u https://proxy:8443 --self-signed
 ```{{execute}}
 
 If `Continue? yes/no (Default: no):` is prompted, answer:

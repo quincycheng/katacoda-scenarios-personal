@@ -17,6 +17,7 @@ cat secure-playbook/secure-playbook.yml
 
 To execute the playbook:
 ```
+export ANSIBLE_HOST_KEY_CHECKING=False 
 ansible-playbook -i secure-playbook/inventory secure-playbook/secure-playbook.yml
 ```{{execute}}
 

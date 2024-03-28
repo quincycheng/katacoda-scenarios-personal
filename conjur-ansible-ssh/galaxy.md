@@ -8,22 +8,22 @@ ansible-galaxy install cyberark.conjur-host-identity
 
 2.  Get the SSL Cert from Conjur
 ```
-export CONJUR_URL={{TRAFFIC_HOST1_8080}}
-openssl s_client -showcerts -servername ${CONJUR_URL#*//} -connect ${CONJUR_URL#*//}:443 < /dev/null 2> /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'  > conjur.pem
+export CONJUR_URL=https://proxy:8443
+openssl s_client -showcerts -servername ${CONJUR_URL#*//} -connect ${CONJUR_URL#*//} < /dev/null 2> /dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'  > conjur.pem
 ```{{execute}}
 
-3. Create a host factory token
+1. Create a host factory token
 ```
-conjur hostfactory create token -i ansible -m 30|tee hftoken
+conjur hostfactory create token -i ansible |tee hftoken
 ```{{execute}}
 
-4. Save the token & Conjur URL as environment variables
+1. Save the token & Conjur URL as environment variables
 ```
 export HFTOKEN="$(grep token hftoken | cut -d: -f2 | tr -d ' \r\n' | tr -d ','  | tr -d '\"' )"
 ```{{execute}}
 
-5. Prepare an inventory file: `cat inventory`{{execute}}
+1. Prepare an inventory file: `cat inventory`{{execute}}
 
-6. Prepare a playbok to grant the ansible host with Conjur Identity: `cat grant_conjur_id.yml`{{execute}}
+2. Prepare a playbok to grant the ansible host with Conjur Identity: `cat grant_conjur_id.yml`{{execute}}
 
-7. Grant it!  `ansible-playbook -i inventory grant_conjur_id.yml`{{execute}}
+3. Grant it!  `ansible-playbook -i inventory grant_conjur_id.yml`{{execute}}

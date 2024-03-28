@@ -289,9 +289,15 @@ apt-get update && \
 apt-add-repository --yes --update ppa:ansible/ansible  && \
 apt install software-properties-common jq ansible sshpass -y && \
 add-apt-repository -y ppa:deadsnakes/ppa && \
-apt install -y python3.10 python3.10-distutils && \
-curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
-python3.10 -m pip install conjur==7.1.0 &
+wget https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.15/conjur-cli-go_8.0.15_amd64.deb && \
+dpkg -i ./conjur-cli-go_8.0.15_amd64.deb
 
+
+#apt install -y python3.10 python3.10-distutils && \
+#curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10 && \
+#python3.10 -m pip install conjur==7.1.0 &
+
+#pip3 install urllib3
+#pip3 install setuptools
 
 export ANSIBLE_HOST_KEY_CHECKING=False 

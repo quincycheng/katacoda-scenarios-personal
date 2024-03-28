@@ -14,10 +14,10 @@ conjur --version
 You only to initialize Conjur CLI once.
 
 ```
-conjur init  -a default -u {{TRAFFIC_HOST1_8080}} 
+conjur init  -a default -u https://172.30.1.2:8443 --self-signed
 ```{{execute}}
 
-If `Trust this certificate? yes/no (Default: no):` is prompted, answer:
+If `Continue? yes/no (Default: no):` is prompted, answer:
  ```
  yes
  ```{{execute}}

@@ -187,7 +187,9 @@ docker-compose pull jenkins &
 docker-compose pull database &
 docker-compose pull proxy &
 
-apt install -y jq python3-pip && pip install conjur & 
+#apt install -y jq python3-pip && pip install conjur & 
+wget  https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.9/conjur-cli-go_8.0.9_amd64.deb && \
+sudo dpkg -i conjur-cli-go_8.0.9_amd64.deb & 
 
 # Get Jenkins files & start Jenkins
 git clone https://github.com/quincycheng/katacoda-env-conjur-jenkins.git && \

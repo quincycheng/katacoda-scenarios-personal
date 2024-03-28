@@ -21,9 +21,9 @@ Your HTTP/REST client probably provides HTTP basic authentication support. For e
 Note that machine roles (Hosts) do not have passwords and do not need to login.
 
 ```
-export conjur_url={{TRAFFIC_HOST1_8080}}
+export conjur_url=http://172.30.1.2:8080
 export conjur_admin=b81t11ebd2en115rjc3bbyfhhhtvcttyc0bm42jcagzreb8pd7
-export refresh_token=$(curl -s --user admin:$conjur_admin {{TRAFFIC_HOST1_8080}}/authn/default/login) && echo $refresh_token
+export refresh_token=$(curl -s --user admin:$conjur_admin http://172.30.1.2:8080/authn/default/login) && echo $refresh_token
 ```{{execute}}
 
 
@@ -34,7 +34,7 @@ Gets a short-lived access token, which can be used to authenticate requests to (
 The login must be URL encoded. For example, alice@devops must be encoded as alice%40devops.
 
 ```
-export response=$(curl -s -X POST {{TRAFFIC_HOST1_8080}}/authn/default/admin/authenticate -d ${refresh_token})
+export response=$(curl -s -X POST http://172.30.1.2:8080/authn/default/admin/authenticate -d ${refresh_token})
 export access_token=$(echo -n $response | base64 | tr -d '\r\n') && echo $access_token
 ```{{execute}}
 

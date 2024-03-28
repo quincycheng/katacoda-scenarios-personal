@@ -17,4 +17,11 @@ It will take a few moments.
 docker-compose up -d
 ```{{execute}}
 
+### Verify
+
+Visit {{TRAFFIC_HOST1_8080}} and you should see Conjur web page once it is ready.
+If it doesn't show up, please wait for a moment before proceed
+
+We will have using `http://172.30.1.2:8080` for internal access to Conjur
+
 If you'd like to learn more about deploying Conjur OSS, please refer to https://www.conjur.org/

@@ -304,8 +304,8 @@ wget https://github.com/cyberark/conjur-cli-go/releases/download/v8.0.10/conjur-
 apt -o DPkg::Lock::Timeout=60 install ./conjur-cli-go_8.0.10_amd64.deb & 
 
 
-wget https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip && \
-unzip terraform_1.5.0_linux_amd64.zip && \
+wget https://releases.hashicorp.com/terraform/1.9.3/terraform_1.9.3_linux_amd64.zip && \
+unzip terraform_1.9.3_linux_amd64.zip && \
 mv terraform /usr/local/bin/ &
 
 docker-compose up -d

@@ -239,7 +239,7 @@ terraform {
  required_providers {
    conjur = {
      source = "cyberark/conjur"
-     version = "0.6.3"
+     version = "0.6.8"
    }
    docker = {
      source  = "kreuzwerker/docker"

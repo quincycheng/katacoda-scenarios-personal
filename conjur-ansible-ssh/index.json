@@ -42,12 +42,12 @@
         "text": "load-policy.md"
       },
       {
-        "title": "App Identity",
-        "text": "galaxy.md"
-      },
-      {
         "title": "The Secrets",
         "text": "secrets.md"
+      },
+      {
+        "title": "App Identity",
+        "text": "galaxy.md"
       },
       {
         "title": "Securing Playbook",
